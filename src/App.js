@@ -18,7 +18,7 @@ function App() {
         >
           Learn React
         </a>
-        <div>{process.env.NODE_ENV}</div>
+        <div>{process.env.PUBLIC_URL}</div>
       </header>
     </div>
   );
