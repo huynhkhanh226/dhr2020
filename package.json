@@ -9,12 +9,16 @@
     "react-router-dom": "5.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start1": "react-scripts start",
+    "build1": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+
+    
+    "start": "webpack-dev-server --env.ENVIRONMENT=development",
+    "serve": "webpack-dev-server --env.ENVIRONMENT=development",
     "dev": "webpack-dev-server --env.ENVIRONMENT=development",
-    "release": "webpack --env.ENVIRONMENT=production"
+    "build": "webpack --env.ENVIRONMENT=production"
   },
   "babel": {
     "presets": [
