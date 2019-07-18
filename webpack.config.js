@@ -10,22 +10,6 @@ var ManifestPlugin = require('webpack-manifest-plugin');
 //var TARGET = process.env.npm_lifecycle_event;
 
 //****************************************************************************************************/
-//Common config
-var commonConfig = {
-  entry: path.join(__dirname, './src/index.js'),
-    output: {
-      path: path.resolve(__dirname, 'dist'),
-      filename: 'bundles.js'
-      //publicPath: '/vue-demo/'
-    },
-    resolve: {
-      alias: {
-        '@': path.resolve(__dirname, 'src'),
-      }
-    },
-};
-
-//****************************************************************************************************/
 //Modules run in debug mode
 const debugModeModules = merge([
   {
@@ -197,6 +181,8 @@ module.exports = env => {
   
   var dotEnv =  parts.getEnvKeys(env.ENVIRONMENT);
 
+ 
+
   //Plugins run in debug mode
   const debugModePluginConfig = merge([
     {
@@ -231,6 +217,22 @@ module.exports = env => {
     }
   ]);
   
+  //Common config
+  var commonConfig = {
+    entry: path.join(__dirname, './src/index.js'),
+      output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundles.js',
+        publicPath: '/' + process.env.PUBLIC_URL + '/'
+      },
+      resolve: {
+        alias: {
+          '@': path.resolve(__dirname, 'src'),
+        }
+      },
+  };
+
+
   //This config are for dev server
   const devServerConfig = merge([
     parts.devServer({host: process.env.DEV_HOST ,port: process.env.DEV_PORT, browser: process.env.DEV_BROWSER})

@@ -7,18 +7,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <div>{process.env.PUBLIC_URL}</div>
+        <div>{process.env.NODE_ENV}</div>
+        <h1>TEST BUILD</h1>
       </header>
     </div>
   );
