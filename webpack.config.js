@@ -1,16 +1,16 @@
 
 const parts = require("./webpack.parts");
 var path = require('path');// to get the current path
-const fs = require('fs'); // to check if the file exists
-const dotenv = require('dotenv');
+//const fs = require('fs'); // to check if the file exists
+//const dotenv = require('dotenv');
 var merge = require('webpack-merge');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ManifestPlugin = require('webpack-manifest-plugin');
-var TARGET = process.env.npm_lifecycle_event;
+//var TARGET = process.env.npm_lifecycle_event;
 
-  //****************************************************************************************************/
-
+//****************************************************************************************************/
+//Common config
 var commonConfig = {
   entry: path.join(__dirname, './src/index.js'),
     output: {
@@ -25,6 +25,8 @@ var commonConfig = {
     },
 };
 
+//****************************************************************************************************/
+//Modules run in debug mode
 const debugModeModules = merge([
   {
     module: {
@@ -106,6 +108,8 @@ const debugModeModules = merge([
   }
 ]);
 
+//****************************************************************************************************/
+//Module run in production mode
 const productModeModules = merge([
   {
     module: {
@@ -187,10 +191,13 @@ const productModeModules = merge([
   }
 ]);
 
+//****************************************************************************************************/
+//Export
 module.exports = env => {
   
   var dotEnv =  parts.getEnvKeys(env.ENVIRONMENT);
-  
+
+  //Plugins run in debug mode
   const debugModePluginConfig = merge([
     {
       plugins: [
@@ -206,7 +213,8 @@ module.exports = env => {
       ]
     }
   ]);
-
+  
+  //Plugins run in production mode
   const productionModePluginConfig = merge([
     {
       plugins: [
@@ -222,11 +230,13 @@ module.exports = env => {
       ]
     }
   ]);
-
+  
+  //This config are for dev server
   const devServerConfig = merge([
-    parts.devServer({host: process.env.HOST,port: process.env.PORT})
+    parts.devServer({host: process.env.DEV_HOST ,port: process.env.DEV_PORT, browser: process.env.DEV_BROWSER})
  ]);
   
+ //Check mode & merge config
   var mode = env.ENVIRONMENT;
   if (mode === "production") {
     return merge(commonConfig, productModeModules, productionModePluginConfig, { mode });
