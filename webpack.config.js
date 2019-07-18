@@ -222,8 +222,8 @@ module.exports = env => {
     entry: path.join(__dirname, './src/index.js'),
       output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundles.js',
-        publicPath: '/' + process.env.PUBLIC_URL + '/'
+        filename: 'bundles.js'
+        //publicPath: '/' + process.env.PUBLIC_URL + '/'
       },
       resolve: {
         alias: {
