@@ -13,8 +13,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "webpack-dev-server --mode=development --env.ENVIRONMENT=development --config webpack.config.js",
-    "release": "webpack --mode=production --env.ENVIRONMENT=production --config webpack.config.js"
+    "dev": "webpack-dev-server --env.ENVIRONMENT=development",
+    "release": "webpack --env.ENVIRONMENT=production"
   },
   "babel": {
     "presets": [
