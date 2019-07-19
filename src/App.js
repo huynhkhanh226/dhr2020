@@ -63,10 +63,10 @@ export class App extends Component {
   functionAsProps = (formData)=>{
       console.log(formData);
       formData.id = Math.random();
-      let newItems = [...this.state.items, formData];
+      let items = [...this.state.items, formData];
       
       this.setState({
-        items: newItems
+        items
       });
   }
 
