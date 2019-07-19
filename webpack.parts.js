@@ -3,7 +3,7 @@ exports.devServer = ({ host, port, browser } = {}) => ({
     stats: "errors-only",
     host, // Defaults to `localhost`
     port, // Defaults to 8080
-    open: browser,
+    open: false, //browser
     overlay: true
   }
 });
@@ -11,7 +11,7 @@ exports.devServer = ({ host, port, browser } = {}) => ({
 exports.getEnvKeys = mode => {
   var path = require("path"); // to get the current path
   const fs = require("fs"); // to check if the file exists
-  const dotenv = require("dotenv");
+  const dotenv = require("dotenv"); // like dotenv-webpack
   //console.log(mode);
   //Get the root path (assuming your webpack config is in the root of your project!)
   const currentPath = path.join(__dirname);

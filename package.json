@@ -25,7 +25,8 @@
       "@babel/preset-react"
     ],
     "plugins": [
-      "@babel/plugin-syntax-dynamic-import"
+      "@babel/plugin-syntax-dynamic-import",
+      "@babel/plugin-proposal-class-properties"
     ]
   },
   "eslintConfig": {
@@ -44,8 +45,10 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "css-loader": "^3.0.0",
     "dotenv": "^8.0.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
     "svg-inline-loader": "^0.8.0",
     "webpack": "^4.35.3",

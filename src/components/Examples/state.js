@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export class test extends Component {
+export class State extends Component {
   constructor(props) {
     super(props);
 
@@ -17,6 +17,18 @@ export class test extends Component {
     }));
   }
 
+
+  triggerClick (e){
+    console.log("triggerClick");
+    console.log(e);
+  }
+
+  triggerClick2 = (e) => {
+    console.log("triggerClick2");
+    console.log(this.state);
+    console.log(e);
+  }
+
   render() {
     return (
       <div>
@@ -25,9 +37,11 @@ export class test extends Component {
         </button>
 
         <h1>{this.props.abc}</h1>
+        <button onClick={this.triggerClick}>Handle Click</button>
+        <button onClick={this.triggerClick2}>Handle Click2</button>
       </div>
     );
   }
 }
 
-export default test;
+export default State;
