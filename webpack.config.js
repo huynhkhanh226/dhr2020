@@ -33,19 +33,19 @@ module.exports = env => {
               {
                 loader: "style-loader", // creates style nodes from JS strings,
                 options: {
-                  sourceMap: false
+                  sourceMap: true
                 }
               },
               {
                 loader: "css-loader", // creates style nodes from JS strings,
                 options: {
-                  sourceMap: false
+                  sourceMap: true
                 }
               },
               {
                 loader: "sass-loader", // creates style nodes from JS strings,
                 options: {
-                  sourceMap: false
+                  sourceMap: true
                 }
               }
             ]
@@ -247,7 +247,7 @@ module.exports = env => {
           additionalTransformers: [],
           
         }),
-        new webpack.SourceMapDevToolPlugin({})
+        //new webpack.SourceMapDevToolPlugin({}),
         // new MiniCssExtractPlugin({
         //   // Options similar to the same options in webpackOptions.output
         //   // both options are optional
@@ -291,11 +291,10 @@ module.exports = env => {
     },
     resolve: {
       alias: {
-        "@": path.resolve(__dirname, "src"),
-        "@@": path.resolve(__dirname, "public")
+        "@": path.resolve(__dirname, "src")
       }
     },
-    devtool: "source-map",
+    //devtool: "source-map",
     optimization: {
       minimizer: [new TerserJSPlugin({})]
     },

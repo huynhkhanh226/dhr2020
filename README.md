@@ -85,3 +85,7 @@ npm install --save html-webpack-plugin
 
 "dev": "webpack --env.ENVIRONMENT=development --config webpack.config.dev.js",
 "build": "webpack --env.ENVIRONMENT=production --config webpack.config.build.js"
+
+https://react-bootstrap.github.io/components/alerts
+npm install --save bootstrap
+npm install --save reactstrap react react-dom
