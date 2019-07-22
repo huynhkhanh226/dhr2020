@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import logo from './assets/images/logo.svg';
-import './App.css';
-
+import '@/App.css';
+import '@/App.scss';
 
 
 import State from './components/Examples/state';
@@ -9,6 +9,7 @@ import Form, { form } from './components/Examples/form';
 import Props from './components/Examples/props';
 import List from './components/Examples/list';
 import UIComponent from './components/Examples/UIComponent';
+import Navbar from './components/Examples/router/navbar';
 
 
 // const State = React.lazy(() => import('./components/Examples/state'));
@@ -95,6 +96,8 @@ export class App extends Component {
           <p></p>
 
           <UIComponent items={this.state.items} />
+
+          <Navbar />
         </header>
       </div>
     );
