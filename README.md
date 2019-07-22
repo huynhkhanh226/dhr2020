@@ -89,3 +89,10 @@ npm install --save html-webpack-plugin
 https://react-bootstrap.github.io/components/alerts
 npm install --save bootstrap
 npm install --save reactstrap react react-dom
+
+import { Button, ButtonToolbar } from "reactstrap";
+import { Button, ButtonToolbar } from "react-bootstrap";
+
+select2
+https://jedwatson.github.io/react-select/
+https://github.com/JedWatson/react-select
