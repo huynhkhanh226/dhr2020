@@ -34,7 +34,7 @@ const rootReducer = (state = initState, action) => {
             });
             return {posts: filter}
         default:
-            return {posts: state.posts}
+            return state
     }
 }
 

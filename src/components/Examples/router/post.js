@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import {
   Button
 } from "reactstrap";
+import {deletePost} from '../actions/actionPost';
+
+
 export class post extends Component {
   //   constructor(props) {
   //     super(props);
@@ -56,12 +59,21 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     deletePost: (id) => {
+//       dispatch({type: 'DELETE', id: id})
+//     }
+//   }
+// }
+
 const mapDispatchToProps = (dispatch) => {
   return {
     deletePost: (id) => {
-      dispatch({type: 'DELETE', id: id})
+      dispatch(deletePost(id))
     }
   }
 }
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(post);
