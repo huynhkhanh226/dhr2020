@@ -1,55 +1,38 @@
-import React, {Component} from 'react';
-import logo from './assets/images/logo.svg';
-import '@/App.css';
-import '@/App.scss';
+import React, { Component, Suspense } from "react";
+import logo from "./assets/images/logo.svg";
+import "@/App.css";
+import "@/App.scss";
 
+import State from "./components/Examples/state";
+import Form, { form } from "./components/Examples/form";
+import Props from "./components/Examples/props";
+import List from "./components/Examples/list";
+import UIComponent from "./components/Examples/UIComponent";
 
-import State from './components/Examples/state';
-import Form, { form } from './components/Examples/form';
-import Props from './components/Examples/props';
-import List from './components/Examples/list';
-import UIComponent from './components/Examples/UIComponent';
-import Navbar from './components/Examples/router/navbar';
+const Home = React.lazy(() =>
+  import(/* webpackChunkName: "Home" */ "./components/Examples/router/home")
+);
+const About = React.lazy(() =>
+  import(/* webpackChunkName: "about" */ "./components/Examples/router/about")
+);
+const Contact = React.lazy(() =>
+  import(
+    /* webpackChunkName: "contact" */ "./components/Examples/router/contact"
+  )
+);
+const Navbar = React.lazy(() =>
+  import(/* webpackChunkName: "navbar" */ "./components/Examples/router/navbar")
+);
 
-
-// const State = React.lazy(() => import('./components/Examples/state'));
-// const Form = React.lazy(() => import('./components/Examples/form'));
-// const Props = React.lazy(() => import('./components/Examples/props'));
-// const List = React.lazy(() => import('./components/Examples/list'));
-// const UIComponent = React.lazy(() => import('./components/Examples/UIComponent'));
-
-
-
-
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <div>{process.env.NODE_ENV}</div>
-//         <h1>TEST BUILD</h1>
-//         <State abc="Hello Props"/>
-
-
-//         <Form/>
-
-//         <p></p>
-
-//         <p></p>
-//         <Props prop1='Hello Prop' />
-//         <p></p>
-//         <List />
-//       </header>
-//     </div>
-//   );
-// }
-
+const Post = React.lazy(() =>
+  import(/* webpackChunkName: "navbar" */ "./components/Examples/router/post")
+);
+import { BrowserRouter, Route, HashRouter, Switch } from "react-router-dom";
 
 export class App extends Component {
   constructor(props) {
-    super(props)
-  
+    super(props);
+
     this.state = {
       items: [
         { name: "Name1", age: 11, id: 1 },
@@ -58,23 +41,22 @@ export class App extends Component {
         { name: "Name4", age: 14, id: 4 }
       ]
     };
+  }
+
+  functionAsProps = formData => {
+    console.log(formData);
+    formData.id = Math.random();
+    let items = [...this.state.items, formData];
+
+    this.setState({
+      items
+    });
   };
 
+  functionDelete = id => {
+    alert("Hello :" + id);
+  };
 
-  functionAsProps = (formData)=>{
-      console.log(formData);
-      formData.id = Math.random();
-      let items = [...this.state.items, formData];
-      
-      this.setState({
-        items
-      });
-  }
-
-  functionDelete = (id) => {
-      alert("Hello :" + id);
-  }
-  
   render() {
     return (
       <div className="App">
@@ -82,27 +64,45 @@ export class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <div>{process.env.NODE_ENV}</div>
           <h1>TEST BUILD</h1>
-          <State abc="Hello Props"/>
-  
-  
-          <Form saveFunction={this.functionAsProps} functionDelete={this.functionDelete} items={this.state.items} />
-  
-          <p></p>
-  
-          <p></p>
-          <Props prop1='Hello Prop' />
-          <p></p>
+          <State abc="Hello Props" />
+
+          <Form
+            saveFunction={this.functionAsProps}
+            functionDelete={this.functionDelete}
+            items={this.state.items}
+          />
+
+          <p />
+
+          <p />
+          <Props prop1="Hello Prop" />
+          <p />
           <List />
-          <p></p>
+          <p />
 
           <UIComponent items={this.state.items} />
 
-          <Navbar />
+
+          <Suspense fallback={<p>Loading ...</p>}>
+            <HashRouter>
+              <Navbar />
+              <Switch>
+                <Route exact path="/home" component={Home}/>
+                <Route path="/about" component={About} name="about"/>
+                <Route path="/contact" component={Contact} name="contact"/>
+                <Route path="/post/:id" component={Post} name="post"/>
+              </Switch>
+            </HashRouter>
+          </Suspense>
+
+          <p />
+          <p />
+          <p />
+          <p />
         </header>
       </div>
     );
   }
 }
 
-export default App
-
+export default App;

@@ -3,8 +3,17 @@ exports.devServer = ({ host, port, browser } = {}) => ({
     stats: "errors-only",
     host, // Defaults to `localhost`
     port, // Defaults to 8080
-    open: false, //browser
-    overlay: true
+    open: browser,//false
+    overlay: true,
+    //historyApiFallback: true,
+    //contentBase: './',
+    //hot: true
+    headers: { 'Access-Control-Allow-Origin': '*' },
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': '*',
+    },
+
   }
 });
 

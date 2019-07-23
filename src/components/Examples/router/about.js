@@ -1,4 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Rainbow from '../hoc/Rainbow';
+
+
+
 const about = () => {
     return (
         <div>
@@ -7,5 +11,5 @@ const about = () => {
     )
 }
 
-export default about
+export default Rainbow(about)
 

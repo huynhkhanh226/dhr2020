@@ -244,9 +244,8 @@ module.exports = env => {
           clearConsole: true,
           // add formatters and transformers (see below)
           additionalFormatters: [],
-          additionalTransformers: [],
-          
-        }),
+          additionalTransformers: []
+        })
         //new webpack.SourceMapDevToolPlugin({}),
         // new MiniCssExtractPlugin({
         //   // Options similar to the same options in webpackOptions.output
@@ -275,7 +274,7 @@ module.exports = env => {
           // Options similar to the same options in webpackOptions.output
           // both options are optional
           filename: "assets/css/[name].css",
-          chunkFilename: "[id].css"
+          chunkFilename: "assets/css/[id].css"
         })
       ]
     }
@@ -286,7 +285,9 @@ module.exports = env => {
     entry: path.join(__dirname, "./src/index.js"),
     output: {
       path: path.resolve(__dirname, "dist"),
-      filename: "assets/js/bundles.js"
+      filename: "assets/js/bundles.js",
+      chunkFilename: "assets/js/components/[name].bundle.js",
+      //chunkFilename: "chunk-[name].[contenthash].js"
       //publicPath: '/' + process.env.PUBLIC_URL + '/'
     },
     resolve: {
@@ -296,7 +297,10 @@ module.exports = env => {
     },
     //devtool: "source-map",
     optimization: {
-      minimizer: [new TerserJSPlugin({})]
+      minimizer: [new TerserJSPlugin({})],
+      splitChunks: {
+        chunks: "all"
+      }
     },
     performance: {
       hints: false, //process.env.NODE_ENV === 'production' ? "warning" : false,

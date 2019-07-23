@@ -1,29 +1,44 @@
 import React, { Component } from "react";
 import { Button, ButtonToolbar } from "reactstrap";
+import { Link, NavLink, withRouter } from "react-router-dom";
 
-
-
-const navbar = () => {
+const navbar = (props) => {
   var style = {
     color: "white",
     fontSize: 200
   };
+ 
   console.log("khanh test source map");
+
   return (
     <div>
-      <div style={style} className="test-sass">
-        abc
-      </div>
-      <Button color="primary">primary</Button>{" "}
-      <Button color="secondary">secondary</Button>{" "}
-      <Button color="success">success</Button>{" "}
-      <Button color="info">info</Button>{" "}
-      <Button color="warning">warning</Button>{" "}
-      <Button color="danger">danger</Button> <Button color="link">link</Button>
-
-
+      <ul className="nav justify-content-center">
+        <li className="nav-item">
+          <NavLink
+            className="nav-link"
+            to={{ pathname: "/home", state: { pass: "some data" } }}
+          >
+            Home
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/about">
+            About
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/contact">
+            Contact
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/post/123">
+            Post
+          </NavLink>
+        </li>
+      </ul>
     </div>
   );
 };
 
-export default navbar;
+export default withRouter(navbar);
