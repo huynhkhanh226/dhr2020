@@ -8,7 +8,7 @@ import Form, { form } from "./components/Examples/form";
 import Props from "./components/Examples/props";
 import List from "./components/Examples/list";
 import UIComponent from "./components/Examples/UIComponent";
-
+import { Route, HashRouter, Switch } from "react-router-dom";
 const Home = React.lazy(() =>
   import(/* webpackChunkName: "Home" */ "./components/Examples/router/home")
 );
@@ -25,9 +25,9 @@ const Navbar = React.lazy(() =>
 );
 
 const Post = React.lazy(() =>
-  import(/* webpackChunkName: "navbar" */ "./components/Examples/router/post")
+  import(/* webpackChunkName: "post" */ "./components/Examples/router/post")
 );
-import { BrowserRouter, Route, HashRouter, Switch } from "react-router-dom";
+
 
 export class App extends Component {
   constructor(props) {

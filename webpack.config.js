@@ -120,6 +120,16 @@ module.exports = env => {
     {
       module: {
         rules: [
+          {
+            test: /\.bundle\.js$/,
+            loader: "bundle-loader",
+            options: {
+              name: 'my-chunk',
+              lazy: true
+            }
+          },
+
+
           // this will apply to both plain `.scss` files
           // AND `<style lang="scss">` blocks in `.vue` files
           {
@@ -273,8 +283,8 @@ module.exports = env => {
         new MiniCssExtractPlugin({
           // Options similar to the same options in webpackOptions.output
           // both options are optional
-          filename: "assets/css/[name].css",
-          chunkFilename: "assets/css/[id].css"
+          filename: "assets/css/[id].[name].css",
+          chunkFilename: "assets/css/[id].[name].css"
         })
       ]
     }
@@ -285,8 +295,8 @@ module.exports = env => {
     entry: path.join(__dirname, "./src/index.js"),
     output: {
       path: path.resolve(__dirname, "dist"),
-      filename: "assets/js/bundles.js",
-      chunkFilename: "assets/js/components/[name].bundle.js",
+      filename: "assets/js/[name].bundles.js",
+      chunkFilename: "assets/js/components/[id].[name].bundle.js",
       //chunkFilename: "chunk-[name].[contenthash].js"
       //publicPath: '/' + process.env.PUBLIC_URL + '/'
     },
@@ -299,16 +309,35 @@ module.exports = env => {
     optimization: {
       minimizer: [new TerserJSPlugin({})],
       splitChunks: {
-        chunks: "all"
+        chunks: 'async',
+        minSize: 30000,
+        maxSize: 0,
+        minChunks: 1,
+        maxAsyncRequests: 5,
+        maxInitialRequests: 3,
+        automaticNameDelimiter: '-',
+        automaticNameMaxLength: 30,
+        name: true,
+        cacheGroups: {
+          vendors: {
+            test: /[\\/]node_modules[\\/]/,
+            priority: -10
+          },
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true
+          }
+        }
       }
     },
     performance: {
-      hints: false, //process.env.NODE_ENV === 'production' ? "warning" : false,
-      maxEntrypointSize: 512000,
-      maxAssetSize: 512000
-      // assetFilter: function(assetFilename) {
-      //   return assetFilename.endsWith('.js');
-      // }
+      hints: process.env.NODE_ENV === 'production' ? "warning" : false,
+      //maxEntrypointSize: 512000,
+      //maxAssetSize: 512000
+       assetFilter: function(assetFilename) {
+         return assetFilename.endsWith('.js');
+       }
     }
   };
 
