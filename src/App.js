@@ -4,7 +4,7 @@ import "@/App.css";
 import "@/App.scss";
 
 import State from "./components/Examples/state";
-import Form, { form } from "./components/Examples/form";
+import Form from "./components/Examples/form";
 import Props from "./components/Examples/props";
 import List from "./components/Examples/list";
 import UIComponent from "./components/Examples/UIComponent";

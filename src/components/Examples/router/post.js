@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-
+import {
+  Button
+} from "reactstrap";
 export class post extends Component {
   //   constructor(props) {
   //     super(props);
@@ -26,12 +28,19 @@ export class post extends Component {
   //         });
   //     });
   //   }
+
+  handleDelete = () => {
+    console.log("handleDelete");
+    this.props.deletePost(this.props.post.id);
+    this.props.history.push('/home');
+  }
+
   render() {
     console.log(this.props);
     const { post } = this.props;
 
     const renderHTML =
-      post == null ? <div>Loading...</div> : <div>Hello Post {post.body} </div>;
+      post == null ? (<div>Loading...</div>) : (<div>Hello Post {post.body} <Button onClick={this.handleDelete}>Delete</Button></div>);
 
     return <div>{renderHTML} </div>;
   }
@@ -47,4 +56,12 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps)(post);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deletePost: (id) => {
+      dispatch({type: 'DELETE', id: id})
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(post);

@@ -4,10 +4,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import '../public/favicon.ico';
+
+
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import RootReducer from './components/Examples/reducers/rootReducer';
-
 const store = createStore(RootReducer);
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
