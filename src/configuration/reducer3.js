@@ -1,4 +1,6 @@
-const initState = {
+
+
+const initialState3 = {
     posts: [
         {
             "userId": 1,
@@ -24,18 +26,19 @@ const initState = {
     ]
 }
 
-const rootReducer = (state = initState, action) => {
-    console.log(action);
+export const rootReducer3 = (state = initialState3, action) => {
+    console.log("rootReducer2");
+    var filter;
     switch (action.type) {
-        case 'DELETE':
-            let id = action.id;
-            const filter = state.posts.filter((post) => {
+        case 'DELETE': 
+        let id = action.id;
+            filter = state.posts.filter((post) => {
                 return post.id !== id;
             });
             return {posts: filter}
+       
         default:
             return state
     }
 }
 
-export default rootReducer

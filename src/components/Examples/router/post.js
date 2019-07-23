@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import {
   Button
 } from "reactstrap";
-import {deletePost} from '../actions/actionPost';
+import {deletePost} from '../../../configuration/actionPost';
 
 
 export class post extends Component {
@@ -52,7 +52,7 @@ export class post extends Component {
 const mapStateToProps = (state, ownProps) => {
   let id = ownProps.match.params.id;
   return {
-    post: state.posts.find(item => {
+    post: state.rootReducer1.posts.find(item => {
         console.log(item);
         return item.id === Number(id);
     })

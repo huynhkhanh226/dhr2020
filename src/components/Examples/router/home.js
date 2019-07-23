@@ -31,6 +31,9 @@ class home extends Component {
     //   });
     // });
   }
+
+ 
+
   render() {
       console.log(this.props);
     const { posts } = this.props;
@@ -49,6 +52,7 @@ class home extends Component {
                 <Button style={style}>
                   <NavLink to={"/post/" + row.id}>Edit</NavLink>
                 </Button>
+                
               </CardBody>
             </Card>
           );
@@ -63,16 +67,11 @@ class home extends Component {
 
 
 const mapStateToProps = (state) => {
+  debugger;
     return {
-        posts: state.posts
+      posts: state.rootReducer1.posts
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    deletePost: (id) => {
-      dispatch({type: 'DELETE', id: id})
-    }
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(home);
+
+export default connect(mapStateToProps)(home);

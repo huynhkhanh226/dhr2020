@@ -6,10 +6,10 @@ import * as serviceWorker from './serviceWorker';
 import '../public/favicon.ico';
 
 
-import { createStore } from 'redux';
+//import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import RootReducer from './components/Examples/reducers/rootReducer';
-const store = createStore(RootReducer);
+import initializeStore from "./configuration/initializeStore";
+const store = initializeStore();
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 
