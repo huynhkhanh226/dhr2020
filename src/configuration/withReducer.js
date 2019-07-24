@@ -1,6 +1,6 @@
 import React from "react";
-import { object } from "prop-types";
-
+import { PropTypes  } from "prop-types";
+import {initializeStore} from './initializeStore';
 /**
  * HOC for adding dynamic reducers to the global store.
  * 
@@ -16,11 +16,14 @@ import { object } from "prop-types";
  *   access to store, you have access to injectReducer. That's the
  *   main goal, get access to the store object.
  */
-const withReducer = (key, reducer) => WrappedComponent => {
-  const Extended = (props, context) => {
+const withReducer = (key, reducer) => (WrappedComponent) => {
+
+  
+  const Extended =  (props, context) => {
     // Here's where we add the new reducer.
     // See initilizeStore for details on how this works.
-    context.store.injectReducer(key, reducer);
+   
+    initializeStore().injectReducer(key, reducer);
 
     // Now just give back the original component as-is.
     return <WrappedComponent {...props} />;
@@ -29,9 +32,10 @@ const withReducer = (key, reducer) => WrappedComponent => {
   // To use context, you must define contextTypes
   // https://reactjs.org/docs/context.html
   Extended.contextTypes = {
-    store: object
+    store: PropTypes.object
   };
 
+  
   return Extended;
 };
 

@@ -1,9 +1,9 @@
 import { createStore } from "redux";
 import createReducer from "./createReducer";
 
-const initializeStore = () => {
+export const initializeStore = () => {
   const store = createStore(createReducer());
-
+  //debugger;
   // Add a dictionary to keep track of the registered async reducers
   store.asyncReducers = {}
 
@@ -15,6 +15,6 @@ const initializeStore = () => {
   }
 
   // Return the modified store
-  return store
+  return store;
 };
-export default initializeStore;
+//export default initializeStore;

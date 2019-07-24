@@ -1,13 +1,13 @@
 export const deletePost = (id) => {
     return {
-        type: 'DELETE',
+        type: 'rootReducer2.DELETE',
         id: id
     }
 }
 
 export const updatePost = (id) => {
     return {
-        type: 'DELETE',
+        type: 'rootReducer2.DELETE',
         id: id
     }
 }

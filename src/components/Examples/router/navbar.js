@@ -1,15 +1,14 @@
-import React, { Component , Fragment} from "react";
+import React, { Component, Fragment } from "react";
 import { Button, ButtonToolbar } from "reactstrap";
-import { Link, NavLink, withRouter   } from "react-router-dom";
-import {withReducer} from '../../../configuration/withReducer';
-import {rootReducer3} from '../../../configuration/reducer3';
+import { Link, NavLink, withRouter } from "react-router-dom";
 
-const navbar = (props) => {
+
+const navbar = props => {
   var style = {
     color: "white",
     fontSize: 200
   };
- 
+
   console.log("khanh test source map");
 
   return (
@@ -42,10 +41,8 @@ const navbar = (props) => {
         </ul>
       </div>
     </Fragment>
-      
-    
   );
 };
 
-//export default withRouter(navbar);
-export default withReducer("reducer3", rootReducer3)(navbar);
+export default withRouter(navbar);
+

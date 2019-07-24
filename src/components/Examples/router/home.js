@@ -12,7 +12,9 @@ import {
 } from "reactstrap";
 
 import { connect } from "react-redux";
-
+import {withReducer} from '../../../configuration/withReducer';
+import {rootReducer3} from '../../../configuration/reducer3';
+//import {MyContext} from '../../../configuration/context';
 class home extends Component {
   //   constructor(props) {
   //     super(props);
@@ -30,6 +32,10 @@ class home extends Component {
     //     posts: res.data.slice(0, 10)
     //   });
     // });
+
+    debugger;
+    console.log(this.store);
+    
   }
 
  
@@ -66,12 +72,19 @@ class home extends Component {
 }
 
 
+
 const mapStateToProps = (state) => {
-  debugger;
+  const { rootReducer2 } = state
+  //debugger;
     return {
-      posts: state.rootReducer1.posts
+      posts: rootReducer2.posts
     }
 }
 
 
-export default connect(mapStateToProps)(home);
+export default connect(mapStateToProps)(home)
+//export default withReducer("rootReducer3", rootReducer3)(navbar);
+//home.contextType = MyContext;
+
+//export default withReducer('rootReducer3', rootReducer3, MyContext)(connect(mapStateToProps, null, null, { context: MyContext })(home))
+

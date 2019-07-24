@@ -57,7 +57,7 @@ const rootReducer1 = (state = initialState1, action) => {
     
     var filter;
     switch (action.type) {
-        case 'DELETE': 
+        case 'rootReducer1.DELETE': 
             let id = action.id;
             filter = state.posts.filter((post) => {
                 return post.id !== id;
@@ -73,7 +73,7 @@ const rootReducer2 = (state = initialState2, action) => {
     console.log("rootReducer2");
     var filter;
     switch (action.type) {
-        case 'DELETE': 
+        case 'rootReducer2.DELETE': 
         let id = action.id;
             filter = state.posts.filter((post) => {
                 return post.id !== id;
@@ -85,7 +85,7 @@ const rootReducer2 = (state = initialState2, action) => {
     }
 }
 
-const createReducer = asyncReducers  => combineReducers({
+const createReducer = (asyncReducers)  => combineReducers({
     rootReducer1,
     rootReducer2,
     ...asyncReducers

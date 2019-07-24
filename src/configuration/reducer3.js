@@ -27,7 +27,7 @@ const initialState3 = {
 }
 
 export const rootReducer3 = (state = initialState3, action) => {
-    console.log("rootReducer2");
+    console.log("rootReducer3");
     var filter;
     switch (action.type) {
         case 'DELETE': 
