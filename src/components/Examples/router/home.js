@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { PropTypes  } from "prop-types";
 import { NavLink } from "react-router-dom";
+import { ReactReduxContext } from 'react-redux'
 import {
   Card,
   CardImg,
@@ -12,8 +14,8 @@ import {
 } from "reactstrap";
 
 import { connect } from "react-redux";
-import {withReducer} from '../../../configuration/withReducer';
 import {rootReducer3} from '../../../configuration/reducer3';
+import { compose } from "C:/Users/huynhkhanh/AppData/Local/Microsoft/TypeScript/3.5/node_modules/redux";
 //import {MyContext} from '../../../configuration/context';
 class home extends Component {
   //   constructor(props) {
@@ -33,8 +35,6 @@ class home extends Component {
     //   });
     // });
 
-    debugger;
-    console.log(this.store);
     
   }
 
@@ -86,5 +86,6 @@ export default connect(mapStateToProps)(home)
 //export default withReducer("rootReducer3", rootReducer3)(navbar);
 //home.contextType = MyContext;
 
-//export default withReducer('rootReducer3', rootReducer3, MyContext)(connect(mapStateToProps, null, null, { context: MyContext })(home))
+
+//export default withReducer('rootReducer3', rootReducer3, null, {context: home.context.store})(connect(mapStateToProps)(home))
 

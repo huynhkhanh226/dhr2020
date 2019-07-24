@@ -7,14 +7,12 @@ import {
 import {deletePost} from '../../../configuration/actionPost';
 import {MyContext} from '../../../configuration/context';
 import { compose } from "C:/Users/huynhkhanh/AppData/Local/Microsoft/TypeScript/3.5/node_modules/redux";
-import { withReducer } from "../../../configuration/withReducer";
 import { rootReducer3 } from "../../../configuration/reducer3";
 
 export class post extends Component {
     constructor(props) {
       super(props);
-      debugger;
-      console.log(props);
+      //console.log(props);
       this.state = {
         id: null,
         post: null
@@ -38,7 +36,7 @@ export class post extends Component {
   //   }
 
   handleDelete = () => {
-    console.log("handleDelete");
+    //consoleconsole.log("handleDelete");
     this.props.deletePost(this.props.post.id);
     //this.props.history.push('/home');
   }
@@ -55,12 +53,12 @@ export class post extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(ReactReduxContext);
+  //console.log(ReactReduxContext);
   let id = ownProps.match.params.id;
   const { rootReducer2 } = state
   return {
     post: rootReducer2.posts.find(item => {
-        console.log(item);
+        //console.log(item);
         return item.id === Number(id);
     })
   };
@@ -75,7 +73,6 @@ const mapStateToProps = (state, ownProps) => {
 // }
 
 const mapDispatchToProps = (dispatch) => {
-  debugger;
   return {
     deletePost: (id) => {
       dispatch(deletePost(id))
@@ -84,5 +81,5 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default withReducer('rootReducer3', rootReducer3)( connect(mapStateToProps, mapDispatchToProps)(post))
+export default connect(mapStateToProps, mapDispatchToProps)(post)
 

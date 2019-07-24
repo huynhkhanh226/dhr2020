@@ -1,26 +1,9 @@
 const logger = store => next => action => {
-  debugger;
-    console.group(action.type)
-    console.info('dispatching', action)
-    let result = next(action)
-    console.log('next state', store.getState())
-    console.groupEnd()
+  //console.log('dispatching', action)
+  let result = next(action)
+  //console.log('next state', store.getState())
+  return result
+}
 
 
-    // try {
-    //   return next(action)
-    // } catch (err) {
-    //   console.error('Caught an exception!', err)
-    //   Raven.captureException(err, {
-    //     extra: {
-    //       action,
-    //       state: store.getState()
-    //     }
-    //   })
-    //   throw err
-    // }
-
-    return result
-  }
-  
-  export default logger
+export default logger;

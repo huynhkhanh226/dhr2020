@@ -23,7 +23,7 @@ const withReducer = (key, reducer) => (WrappedComponent) => {
     // Here's where we add the new reducer.
     // See initilizeStore for details on how this works.
    
-    initializeStore().injectReducer(key, reducer);
+    context.store.injectReducer(key, reducer);
 
     // Now just give back the original component as-is.
     return <WrappedComponent {...props} />;

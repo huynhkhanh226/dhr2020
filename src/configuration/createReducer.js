@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-const initialState1 = {
+ const initialState1 = {
     posts: [
         {
             "userId": 1,
@@ -26,7 +26,7 @@ const initialState1 = {
     ]
 }
 
-const initialState2 = {
+ const initialState2 = {
     posts: [
         {
             "userId": 1,
@@ -52,8 +52,8 @@ const initialState2 = {
     ]
 }
 
-const rootReducer1 = (state = initialState1, action) => {
-    console.log("rootReducer1");
+export const rootReducer1 = (state = initialState1, action) => {
+    //console.log("rootReducer1");
     
     var filter;
     switch (action.type) {
@@ -69,8 +69,8 @@ const rootReducer1 = (state = initialState1, action) => {
     }
 }
 
-const rootReducer2 = (state = initialState2, action) => {
-    console.log("rootReducer2");
+export const rootReducer2 = (state = initialState2, action) => {
+    //console.log("rootReducer2");
     var filter;
     switch (action.type) {
         case 'rootReducer2.DELETE': 

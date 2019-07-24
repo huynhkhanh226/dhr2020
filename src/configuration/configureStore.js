@@ -3,17 +3,44 @@ import thunkMiddleware from 'redux-thunk'
 
 import monitorReducersEnhancer from './enhancers/monitorReducer'
 import loggerMiddleware from './middleware/logger'
-import createReducer from './createReducer'
-import { composeWithDevTools } from 'redux-devtools-extension'
+import authMiddleware from './middleware/auth'
+import createReducer, {rootReducer1, rootReducer2} from './createReducer'
+import logger from 'redux-logger'
+import {createReducerManager} from './createReducerManager';
+import {rootReducer3} from './reducer3';
+//import { composeWithDevTools } from 'redux-devtools-extension'
 
+const staticReducers = {
+  rootReducer1,
+  rootReducer2
+}
 
 export default function configureStore(preloadedState) {
-  const middlewares = [loggerMiddleware, thunkMiddleware]
+  const middlewares = [logger,thunkMiddleware, loggerMiddleware, authMiddleware]
   const middlewareEnhancer = applyMiddleware(...middlewares)
   const enhancers = [middlewareEnhancer, monitorReducersEnhancer]
   //const composedEnhancers = compose(...enhancers)
-  const composedEnhancers = composeWithDevTools(...enhancers)
+  const composedEnhancers = compose(...enhancers)
   const store = createStore(createReducer(), preloadedState, composedEnhancers)
+  //console.log(store);
+  const reducerManager = createReducerManager(staticReducers);
+  // Optional: Put the reducer manager on the store so it is easily accessible
+  store.reducerManager = reducerManager;
+
+
+   //debugger;
+  // Add a dictionary to keep track of the registered async reducers
+  store.asyncReducers = {}
+
+  // Create an inject reducer function
+  // This function adds the async reducer, and creates a new combined reducer
+  store.injectReducer = (key, asyncReducer) => {
+    store.asyncReducers[key] = asyncReducer
+    store.replaceReducer(createReducer(store.asyncReducers))
+  }
+
+
   console.log(store);
+  
   return store
 }
