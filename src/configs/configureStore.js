@@ -4,10 +4,9 @@ import thunkMiddleware from 'redux-thunk'
 import monitorReducersEnhancer from './enhancers/monitorReducer'
 import loggerMiddleware from './middleware/logger'
 import authMiddleware from './middleware/auth'
-import createReducer, {rootReducer1, rootReducer2} from './createReducer'
+import createReducer, {rootReducer1, rootReducer2} from './staticReducers'
 import logger from 'redux-logger'
 import {createReducerManager} from './createReducerManager';
-import {rootReducer3} from './reducer3';
 //import { composeWithDevTools } from 'redux-devtools-extension'
 
 const staticReducers = {

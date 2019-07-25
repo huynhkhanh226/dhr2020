@@ -54,7 +54,6 @@ import { combineReducers } from 'redux';
 
 export const rootReducer1 = (state = initialState1, action) => {
     //console.log("rootReducer1");
-    
     var filter;
     switch (action.type) {
         case 'rootReducer1.DELETE': 

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import { PropTypes  } from "prop-types";
 import { NavLink } from "react-router-dom";
-import { ReactReduxContext } from 'react-redux'
 import {
   Card,
   CardImg,
@@ -14,9 +13,7 @@ import {
 } from "reactstrap";
 
 import { connect } from "react-redux";
-import {rootReducer3} from '../../../configuration/reducer3';
 import { compose } from "C:/Users/huynhkhanh/AppData/Local/Microsoft/TypeScript/3.5/node_modules/redux";
-//import {MyContext} from '../../../configuration/context';
 class home extends Component {
   //   constructor(props) {
   //     super(props);
@@ -39,7 +36,6 @@ class home extends Component {
   }
 
  
-
   render() {
       console.log(this.props);
     const { posts } = this.props;
@@ -82,10 +78,10 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps)(home)
+//export default connect(mapStateToProps)(home)
 //export default withReducer("rootReducer3", rootReducer3)(navbar);
 //home.contextType = MyContext;
+export default connect(mapStateToProps)(home)
 
-
-//export default withReducer('rootReducer3', rootReducer3, null, {context: home.context.store})(connect(mapStateToProps)(home))
+//export default withReducer('rootReducer3', rootReducer3, null, {context: MyContext})(home)
 

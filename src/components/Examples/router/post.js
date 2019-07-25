@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { connect, ReactReduxContext , connectAdvanced} from "react-redux";
+import { connect} from "react-redux";
 import {
   Button
 } from "reactstrap";
-import {deletePost} from '../../../configuration/actionPost';
-import {MyContext} from '../../../configuration/context';
-import { compose } from "C:/Users/huynhkhanh/AppData/Local/Microsoft/TypeScript/3.5/node_modules/redux";
-import { rootReducer3 } from "../../../configuration/reducer3";
+import {deletePost} from '../../../configs/actionPost';
 
 export class post extends Component {
     constructor(props) {
@@ -42,12 +39,9 @@ export class post extends Component {
   }
 
   render() {
-    
     const { post } = this.props;
-
     const renderHTML =
       post == null ? (<div>Loading...</div>) : (<div>Hello Post {post.body} <Button onClick={this.handleDelete}>Delete</Button></div>);
-
     return <div>{renderHTML} </div>;
   }
 }

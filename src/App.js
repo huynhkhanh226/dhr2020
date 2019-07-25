@@ -56,7 +56,6 @@ export class App extends Component {
   functionDelete = id => {
     alert("Hello :" + id);
   };
-
   render() {
     return (
       <div className="App">
@@ -105,5 +104,7 @@ export class App extends Component {
   }
 }
 //App.contextTypes = { store: PropTypes.object };
-
+// App.propTypes = {
+//   store: PropTypes.object.isRequired
+// }
 export default App;
