@@ -4,15 +4,10 @@ import thunkMiddleware from 'redux-thunk'
 import monitorReducersEnhancer from './enhancers/monitorReducer'
 import loggerMiddleware from './middleware/logger'
 import authMiddleware from './middleware/auth'
-import createReducer, {rootReducer1, rootReducer2} from './staticReducers'
+import createReducer, {staticReduces} from '../reducers/index'
 import logger from 'redux-logger'
 import {createReducerManager} from './createReducerManager';
 //import { composeWithDevTools } from 'redux-devtools-extension'
-
-const staticReducers = {
-  rootReducer1,
-  rootReducer2
-}
 
 export default function configureStore(preloadedState) {
   const middlewares = [logger,thunkMiddleware, loggerMiddleware, authMiddleware]
@@ -22,7 +17,7 @@ export default function configureStore(preloadedState) {
   const composedEnhancers = compose(...enhancers)
   const store = createStore(createReducer(), preloadedState, composedEnhancers)
   //console.log(store);
-  const reducerManager = createReducerManager(staticReducers);
+  const reducerManager = createReducerManager(staticReduces);
   // Optional: Put the reducer manager on the store so it is easily accessible
   store.reducerManager = reducerManager;
 

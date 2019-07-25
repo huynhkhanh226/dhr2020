@@ -338,7 +338,13 @@ module.exports = env => {
        assetFilter: function(assetFilename) {
          return assetFilename.endsWith('.js');
        }
-    }
+    },
+    externals: {
+      // global app config object
+      config: JSON.stringify({
+          apiUrl: process.env.API_URL
+      })
+  }
   };
 
   //This config are for dev server

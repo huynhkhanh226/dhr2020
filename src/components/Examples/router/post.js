@@ -4,7 +4,7 @@ import { connect} from "react-redux";
 import {
   Button
 } from "reactstrap";
-import {deletePost} from '../../../configs/actionPost';
+import {deletePost} from '../../../actions/actionPost';
 
 export class post extends Component {
     constructor(props) {
