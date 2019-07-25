@@ -1,5 +1,18 @@
-@import '~bootstrap/dist/css/bootstrap.css'; //import from node_modules
-@import './assets/css/style.css'; //import anywhere
-@import './assets/scss/_custom.scss';
-@import './assets/sass/_custom.sass';
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+@import "~bootstrap/dist/css/bootstrap.css"; //import from node_modules
+@import "./assets/css/style.css"; //import anywhere
+@import "./assets/scss/_custom.scss";
+@import "./assets/sass/_custom.sass";

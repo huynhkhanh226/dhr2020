@@ -1,6 +1,5 @@
 import React, { Component, Suspense } from "react";
 import logo from "./assets/images/logo.svg";
-import "@/App.css";
 import "@/App.scss";
 import { PropTypes  } from "prop-types";
 import State from "./components/Examples/state";
