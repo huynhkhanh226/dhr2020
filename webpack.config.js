@@ -68,6 +68,10 @@ module.exports = env => {
               }
             ]
           },
+          {
+            test: /\.jsx?$/,
+            loader: 'babel-loader'
+          },
           // {
           //   test: /\.js$/,
           //   use: [
@@ -152,6 +156,10 @@ module.exports = env => {
             test: /\.js$/,
             loader: "babel-loader",
             exclude: /node_modules/
+          },
+          {
+            test: /\.jsx?$/,
+            loader: 'babel-loader'
           },
           {
             test: /\.(png|jpg|gif|svg|ico)$/,
