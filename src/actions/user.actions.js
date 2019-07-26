@@ -3,27 +3,51 @@ import { userService } from '../services/user.service';
 import { history } from '../helpers/history';
 
 export const userActions = {
+    getClient,
     login,
     logout
 };
+
+function getClient(username, password) {
+    return dispatch => {
+        dispatch(request({ username: username, token: "" }));
+        userService.getClientID()
+            .then(
+                data => { 
+                    dispatch(success(data));
+                    dispatch(login(username,password));
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                    
+                }
+            );
+    };
+
+    function request(client) { return { type: userConstants.CLIENTID_REQUEST, client } }
+    function success(client) { return { type: userConstants.CLIENTID_SUCCESS, client } }
+    function failure(error) { return { type: userConstants.CLIENTID_FAILURE, error } }
+}
+
+
 
 /*!
  * @author user <email>
  * date 07/25/2019
  * login function 
  */
+
 function login(username, password) {
     return dispatch => {
-        dispatch(request({ username }));
+        dispatch(request({ username : username }));
         userService.login(username, password)
             .then(
-                user => { 
-                    dispatch(success(user));
+                data => { 
+                    dispatch(success(data));
                     history.push('/');
                 },
                 error => {
                     dispatch(failure(error.toString()));
-                    dispatch(alertActions.error(error.toString()));
                 }
             );
     };

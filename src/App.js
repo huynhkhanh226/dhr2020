@@ -5,7 +5,7 @@ import "@/App.scss";
 import {Route, Router} from "react-router-dom";
 
 import {history} from './helpers/index';
-import {PrivateRoute} from './components/HomePage/PrivateRoute.jsx';
+import {PrivateRoute} from './components/PrivateRoute.jsx';
 import {HomePage} from './components/HomePage/HomePage.jsx';
 import {LoginPage} from './components/LoginPage/LoginPage.jsx';
 
@@ -21,7 +21,7 @@ export class App extends Component {
 
     render() {
         return (
-            <div className="jumbotron">
+            <div>
                 <div className="container">
                     <div className="col-sm-8 col-sm-offset-2">
                         <Router history={history}>

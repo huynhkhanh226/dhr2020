@@ -4,12 +4,17 @@ import { connect } from 'react-redux';
 
 import { userActions } from '../../actions/user.actions';
 
+
 class LoginPage extends React.Component {
     constructor(props) {
         super(props);
 
         // reset login status
-        this.props.logout();
+        let user = JSON.parse(localStorage.getItem('user'));
+        if (user !== null){
+            this.props.logout();
+        }
+        
 
         this.state = {
             username: '',
@@ -32,7 +37,8 @@ class LoginPage extends React.Component {
         this.setState({ submitted: true });
         const { username, password } = this.state;
         if (username && password) {
-            this.props.login(username, password);
+            this.props.getClient(username, password);
+            //this.props.login(username, password);
         }
     }
 
@@ -58,7 +64,7 @@ class LoginPage extends React.Component {
                         }
                     </div>
                     <div className="form-group">
-                        <button className="btn btn-primary">Login</button>
+                    <button className="btn btn-primary">Login</button>
                     </div>
                 </form>
             </div>
@@ -72,6 +78,7 @@ function mapState(state) {
 }
 
 const actionCreators = {
+    getClient: userActions.getClient,
     login: userActions.login,
     logout: userActions.logout
 };
