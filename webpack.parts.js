@@ -5,7 +5,7 @@ exports.devServer = ({ host, port, browser } = {}) => ({
     port, // Defaults to 8080
     open: browser,//false
     overlay: true,
-    //historyApiFallback: true,
+    historyApiFallback: true,
     //contentBase: './',
     //hot: true
     //headers: { 'Access-Control-Allow-Origin': '*' },
