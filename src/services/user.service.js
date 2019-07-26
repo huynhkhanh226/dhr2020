@@ -81,7 +81,7 @@ function handleResponse(response) {
         logout();
         location.reload(true);
       }
-
+      alert("Vui lòng đăng nhập.");
       const error = (data && data.message) || response.statusText;
       return Promise.reject(error);
     }

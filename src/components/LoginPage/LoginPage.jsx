@@ -1,87 +1,118 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React , {Suspense} from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-import { userActions } from '../../actions/user.actions';
-
+import { userActions } from "../../actions/user.actions";
+const AlertPage = React.lazy(() => import(/* webpackChunkName: "AlertPage" */ "../Alert/AlertPage.jsx"));
 
 class LoginPage extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        // reset login status
-        let user = JSON.parse(localStorage.getItem('user'));
-        if (user !== null){
-            this.props.logout();
-        }
-        
-
-        this.state = {
-            username: '',
-            password: '',
-            submitted: false
-        };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+    // reset login status
+    let user = JSON.parse(localStorage.getItem("user"));
+    if (user !== null) {
+      this.props.logout();
     }
 
-    handleChange(e) {
-        const { name, value } = e.target;
-        this.setState({ [name]: value });
-    }
+    this.state = {
+      username: "",
+      password: "",
+      submitted: false
+    };
 
-    handleSubmit(e) {
-        e.preventDefault();
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  componentDidMount() {
+    console.log("componentDidMount");
+  }
 
-        this.setState({ submitted: true });
-        const { username, password } = this.state;
-        if (username && password) {
-            this.props.getClient(username, password);
-            //this.props.login(username, password);
-        }
-    }
+  handleChange(e) {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  }
 
-    render() {
-        const { loggingIn } = this.props;
-        const { username, password, submitted } = this.state;
-        return (
-            <div className="col-md-6 col-md-offset-3">
-                <h2>Login</h2>
-                <form name="form" onSubmit={this.handleSubmit}>
-                    <div className={'form-group' + (submitted && !username ? ' has-error' : '')}>
-                        <label htmlFor="username">Username</label>
-                        <input type="text" className="form-control" name="username" value={username} onChange={this.handleChange} />
-                        {submitted && !username &&
-                            <div className="help-block">Username is required</div>
-                        }
-                    </div>
-                    <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
-                        <label htmlFor="password">Password</label>
-                        <input type="password" className="form-control" name="password" value={password} onChange={this.handleChange} />
-                        {submitted && !password &&
-                            <div className="help-block">Password is required</div>
-                        }
-                    </div>
-                    <div className="form-group">
-                    <button className="btn btn-primary">Login</button>
-                    </div>
-                </form>
-            </div>
-        );
+  handleSubmit(e) {
+    e.preventDefault();
+
+    this.setState({ submitted: true });
+    const { username, password } = this.state;
+    if (username && password) {
+      this.props.getClient(username, password);
+      alert("abc");
+      //this.props.login(username, password);
     }
+  }
+
+  render() {
+    const { loggingIn } = this.props;
+    const { username, password, submitted } = this.state;
+    return (
+      <div className="col-md-6 col-md-offset-3">
+        <h2>Login</h2>
+        <div>
+          <Suspense fallback={<div>Loading...</div>}>
+            <AlertPage/>
+          </Suspense>
+        </div>
+        <form name="form" onSubmit={this.handleSubmit}>
+          <div
+            className={
+              "form-group" + (submitted && !username ? " has-error" : "")
+            }
+          >
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              className="form-control"
+              name="username"
+              value={username}
+              onChange={this.handleChange}
+            />
+            {submitted && !username && (
+              <div className="help-block">Username is required</div>
+            )}
+          </div>
+          <div
+            className={
+              "form-group" + (submitted && !password ? " has-error" : "")
+            }
+          >
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              className="form-control"
+              name="password"
+              value={password}
+              onChange={this.handleChange}
+            />
+            {submitted && !password && (
+              <div className="help-block">Password is required</div>
+            )}
+          </div>
+          <div className="form-group">
+            <button className="btn btn-primary">Login</button>
+          </div>
+        </form>
+      </div>
+    );
+  }
 }
 
 function mapState(state) {
-    const { loggingIn } = state.authentication;
-    return { loggingIn };
+  const { loggingIn } = state.authentication;
+  return { loggingIn };
 }
 
 const actionCreators = {
-    getClient: userActions.getClient,
-    login: userActions.login,
-    logout: userActions.logout
+  getClient: userActions.getClient,
+  login: userActions.login,
+  logout: userActions.logout
 };
 
-const connectedLoginPage = connect(mapState, actionCreators)(LoginPage);
+const connectedLoginPage = connect(
+  mapState,
+  actionCreators
+)(LoginPage);
 export { connectedLoginPage as LoginPage };

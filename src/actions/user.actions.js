@@ -1,6 +1,8 @@
 import { userConstants } from '../constants/user.constants';
 import { userService } from '../services/user.service';
 import { history } from '../helpers/history';
+import {alertActions} from './alert.actions';
+
 
 export const userActions = {
     getClient,
@@ -16,10 +18,11 @@ function getClient(username, password) {
                 data => { 
                     dispatch(success(data));
                     dispatch(login(username,password));
+
                 },
                 error => {
                     dispatch(failure(error.toString()));
-                    
+                    dispatch(alertActions.error(error.toString()));
                 }
             );
     };
@@ -44,10 +47,17 @@ function login(username, password) {
             .then(
                 data => { 
                     dispatch(success(data));
-                    history.push('/');
+                    if (data.code === 200){
+                        history.push('/');
+                    }else{
+                        dispatch(failure(data.message));
+                        dispatch(alertActions.error(data.message));
+                    }
+                   
                 },
                 error => {
                     dispatch(failure(error.toString()));
+                    dispatch(alertActions.error(error.toString()));
                 }
             );
     };
