@@ -11,7 +11,7 @@ var FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 //Notify desktop
-var notifier = require("node-notifier");
+//var notifier = require("node-notifier");
 //var TARGET = process.env.npm_lifecycle_event;
 
 //****************************************************************************************************/
