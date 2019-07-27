@@ -136,7 +136,7 @@ function logout() {
     body: JSON.stringify({ token })
   };
   //api/user/logout
-  return fetch(`${config.apiUrl}//user/logout`, requestOptions)
+  return fetch(`${config.apiUrl}/user/logout`, requestOptions)
     .then(handleResponse)
     .then(response => {
       localStorage.removeItem("user");

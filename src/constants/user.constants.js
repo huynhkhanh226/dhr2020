@@ -1,4 +1,4 @@
-export  const userConstants = {
+export const userConstants = {
     CLIENTID_REQUEST: 'CLIENTID_REQUEST',
     CLIENTID_SUCCESS: 'CLIENTID_SUCCESS',
     CLIENTID_FAILURE: 'CLIENTID_FAILURE',

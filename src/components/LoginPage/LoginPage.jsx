@@ -40,7 +40,7 @@ class LoginPage extends React.Component {
     const { username, password } = this.state;
     if (username && password) {
       this.props.getClient(username, password);
-      alert("abc");
+      //alert("abc");
       //this.props.login(username, password);
     }
   }

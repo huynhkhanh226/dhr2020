@@ -8,7 +8,7 @@ exports.devServer = ({ host, port, browser } = {}) => ({
     historyApiFallback: true,
     //contentBase: './',
     //hot: true
-    headers: { 'Access-Control-Allow-Origin': '*' },
+    //headers: { 'Access-Control-Allow-Origin': '*' },
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Headers': '*',
