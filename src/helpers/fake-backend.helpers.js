@@ -1,4 +1,4 @@
-import {authConstants } from '../constants/api.constants'
+import {authConstants } from '../_constants/api.constants'
 
 
 export function configureFakeBackend() {

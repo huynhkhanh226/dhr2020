@@ -1,9 +1,14 @@
-import React , {Suspense} from "react";
-//import { Link } from "react-router-dom";
+import React, { Suspense } from "react";
+// import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import './Login.scss';
+import { userActions } from "../../_actions/user.actions";
+import { FormGroup, Col, Label } from 'reactstrap';
+import Footer from './Footer.jsx';
+import Logo from './logo.jsx';
+const AlertPage = React.lazy(() => import( /* webpackChunkName: "AlertPage" */
+  "../Alert/AlertPage.jsx"));
 
-import { userActions } from "../../actions/user.actions";
-const AlertPage = React.lazy(() => import(/* webpackChunkName: "AlertPage" */ "../Alert/AlertPage.jsx"));
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -18,7 +23,8 @@ class LoginPage extends React.Component {
     this.state = {
       username: "",
       password: "",
-      submitted: false
+      submitted: false,
+      logo: require('../../assets/images/chanh_svg.svg')
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -40,63 +46,82 @@ class LoginPage extends React.Component {
     const { username, password } = this.state;
     if (username && password) {
       this.props.getClient(username, password);
-      //alert("abc");
-      //this.props.login(username, password);
+      // alert("abc");
+      // this.props.login(username, password);
     }
   }
 
-  render() {
-    //const { loggingIn } = this.props;
-    const { username, password, submitted } = this.state;
-    return (
-      <div className="col-md-6 col-md-offset-3">
-        <h2>Login</h2>
-        <div>
-          <Suspense fallback={<div>Loading...</div>}>
-            <AlertPage/>
-          </Suspense>
-        </div>
-        <form name="form" onSubmit={this.handleSubmit}>
-          <div
-            className={
-              "form-group" + (submitted && !username ? " has-error" : "")
-            }
-          >
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              className="form-control"
-              name="username"
-              value={username}
-              onChange={this.handleChange}
-            />
-            {submitted && !username && (
-              <div className="help-block">Username is required</div>
-            )}
-          </div>
-          <div
-            className={
-              "form-group" + (submitted && !password ? " has-error" : "")
-            }
-          >
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              className="form-control"
-              name="password"
-              value={password}
-              onChange={this.handleChange}
-            />
-            {submitted && !password && (
-              <div className="help-block">Password is required</div>
-            )}
-          </div>
-          <div className="form-group">
-            <button className="btn btn-primary">Login</button>
-          </div>
-        </form>
-      </div>
-    );
+  render() { // const { loggingIn } = this.props;
+    const { username, password, submitted, logo } = this.state;
+    return (<div>
+      
+        <FormGroup row>
+          <Col sm={4}>
+          </Col>
+          <Col sm={4} className="logo-container">
+            <FormGroup row>
+              <Col sm={12}>
+                <Logo logo={logo} />
+              </Col>
+            </FormGroup>
+            <FormGroup row>
+              <Col sm={12}>
+                <div style={{display: "none"}}>
+                  <Suspense fallback={
+                    <div>Loading...</div>
+                  }>
+                    <AlertPage />
+                  </Suspense>
+                </div>
+                <form name="form"
+                  onSubmit={
+                    this.handleSubmit
+                  }>
+                  <div className={
+                    "form-group" + (
+                      submitted && !username ? " has-error" : ""
+                    )
+                  }>
+                    <label htmlFor="username">TÊN ĐĂNG NHẬP</label>
+                    <input type="text" className="form-control" name="username" placeholder="Nhập tên đăng nhập"
+                      value={username}
+                      onChange={
+                        this.handleChange
+                      } 
+                      autoFocus
+                      /> {
+                      submitted && !username && (<div className="help-block">Username is required</div>)
+                    } </div>
+                  <div className={
+                    "form-group" + (
+                      submitted && !password ? " has-error" : ""
+                    )
+                  }>
+                    <label htmlFor="password">MẬT KHẨU</label>
+                    <input type="password" className="form-control" name="password" placeholder="Nhập mật khẩu"
+                      value={password}
+                      onChange={
+                        this.handleChange
+                      } /> {
+                      submitted && !password && (<div className="help-block">Password is required</div>)
+                    } </div>
+                  <div className="form-group">
+                    <button className="btn btn-primary">Login</button>
+                  </div>
+                </form>
+              </Col>
+            </FormGroup>
+          </Col>
+          <Col sm={4}>
+          </Col>
+        </FormGroup>
+        
+      <FormGroup row>
+        <Col sm={12}>
+          <Footer />
+        </Col>
+      </FormGroup>
+    </div>);
   }
 }
 
@@ -111,8 +136,7 @@ const actionCreators = {
   logout: userActions.logout
 };
 
-const connectedLoginPage = connect(
-  mapState,
-  actionCreators
-)(LoginPage);
-export { connectedLoginPage as LoginPage };
+const connectedLoginPage = connect(mapState, actionCreators)(LoginPage);
+export {
+  connectedLoginPage as LoginPage
+};

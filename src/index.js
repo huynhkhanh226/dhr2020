@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import '../public/favicon.ico';
 
-import { createStore } from 'redux';
-import { Provider, connect } from 'react-redux';
+//import { createStore } from 'redux';
+//import { Provider, connect } from 'react-redux';
 //import {configureStore} from './configuration/createReducerManager';
 //import {initializeStore} from "./configuration/initializeStore";
 import configureStore from './configs/configureStore';

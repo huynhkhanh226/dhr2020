@@ -8,7 +8,8 @@ import {history} from './helpers/index';
 import {PrivateRoute} from './components/PrivateRoute.jsx';
 import {HomePage} from './components/HomePage/HomePage.jsx';
 import {LoginPage} from './components/LoginPage/LoginPage.jsx';
-import { alertActions } from "./actions/alert.actions";
+import { alertActions } from "./_actions/alert.actions";
+import {FormGroup, Col , Label} from 'reactstrap';
 
 class App extends Component {
     constructor(props) {
@@ -22,14 +23,11 @@ class App extends Component {
 
 
     render() {
-        console.log("dsfdsfsd");
         return (
             <div>
                 <div className="container">
-                    <div className="col-sm-8 col-sm-offset-2">
-                        {alert.message &&
-                            <div className={`alert ${alert.type}`}>{alert.message}</div>
-                        }
+                    <FormGroup row>
+                    <Col sm={12}>
                         <Router history={history}>
                             <div>
                                 <PrivateRoute exact path="/"
@@ -38,7 +36,8 @@ class App extends Component {
                                     component={LoginPage}/>
                             </div>
                         </Router>
-                    </div>
+                    </Col>
+                    </FormGroup>
                 </div>
             </div>
         );

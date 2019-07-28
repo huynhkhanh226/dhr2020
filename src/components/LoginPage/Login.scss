@@ -1,0 +1,93 @@
+$bgcolor: lightblue;
+$bgImage: '../../assets/images/bg.png';
+$textcolor: #333;
+$fontsize: 13px;
+
+
+$blue: #007bff;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #e83e8c;
+$red: #dc3545;
+$orange: #fd7e14;
+$yellow: #ffc107;
+$green: #28a745;
+$teal: #20c997;
+$cyan: #17a2b8;
+$white: #fff;
+$gray: #6c757d;
+$gray-dark: #343a40;
+$primary: #007bff;
+$secondary: #6c757d;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #343a40;
+
+
+/* Use the variables */
+body {
+  //background-color: $bgcolor;
+  background-image: url($bgImage);
+  color: $textcolor;
+  font-size: $fontsize;
+  object-fit: contain;
+  margin: auto;
+  display: block;
+  background-size:     cover;                
+  background-repeat:   no-repeat;
+  background-position: center center; 
+}
+.logo-solid {
+    padding: 5px 14px 14px 14px;
+    border: 4px dotted #ccc;
+    border-radius: 50%;
+    margin-top: 25px;
+}
+
+.logo-dotted{
+    padding: 5px 14px 14px 14px;
+    border: 1px dotted #ccc;
+    border-radius: 50%;
+}
+.logo-container{
+    //border: 1px solid #ffffff;
+    background-color: #ffffff;
+    margin-top: 8%;
+    opacity: 0.9;
+    border-radius: 3px;
+
+    /* -moz-box-shadow:    inset 0 0 5px #ddd;
+   -webkit-box-shadow: inset 0 0 5px #ddd;
+   box-shadow:         inset 0 0 5px #ddd; */
+}
+.login-footer{
+    height: 50px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:  #ffffff;
+  color: #ccc;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #ddd;
+    font-size: 12px;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #ddd;
+    font-size: 12px;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #ddd;
+    font-size: 12px;
+  }
