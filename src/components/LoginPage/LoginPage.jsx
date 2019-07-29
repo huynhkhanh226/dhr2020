@@ -3,7 +3,8 @@ import React, { Suspense } from "react";
 import { connect } from "react-redux";
 import './Login.scss';
 import { userActions } from "../../_actions/user.actions";
-import { FormGroup, Col, Label } from 'reactstrap';
+import { FormGroup, Col,  Card, Button, CardHeader, CardFooter, CardBody,
+  CardTitle, CardText } from 'reactstrap';
 import Footer from './Footer.jsx';
 import Logo from './logo.jsx';
 const AlertPage = React.lazy(() => import( /* webpackChunkName: "AlertPage" */
@@ -54,67 +55,54 @@ class LoginPage extends React.Component {
   render() { // const { loggingIn } = this.props;
     const { username, password, submitted, logo } = this.state;
     return (<div>
+     
       
-        <FormGroup row>
-          <Col sm={4}>
-          </Col>
-          <Col sm={4} className="logo-container">
-            <FormGroup row>
-              <Col sm={12}>
-                <Logo logo={logo} />
-              </Col>
-            </FormGroup>
-            <FormGroup row>
-              <Col sm={12}>
-                <div style={{display: "none"}}>
-                  <Suspense fallback={
-                    <div>Loading...</div>
-                  }>
-                    <AlertPage />
-                  </Suspense>
-                </div>
-                <form name="form"
-                  onSubmit={
-                    this.handleSubmit
-                  }>
-                  <div className={
-                    "form-group" + (
-                      submitted && !username ? " has-error" : ""
-                    )
-                  }>
-                    <label htmlFor="username">TÊN ĐĂNG NHẬP</label>
-                    <input type="text" className="form-control" name="username" placeholder="Nhập tên đăng nhập"
-                      value={username}
-                      onChange={
-                        this.handleChange
-                      } 
-                      autoFocus
-                      /> {
-                      submitted && !username && (<div className="help-block">Username is required</div>)
-                    } </div>
-                  <div className={
-                    "form-group" + (
-                      submitted && !password ? " has-error" : ""
-                    )
-                  }>
-                    <label htmlFor="password">MẬT KHẨU</label>
-                    <input type="password" className="form-control" name="password" placeholder="Nhập mật khẩu"
-                      value={password}
-                      onChange={
-                        this.handleChange
-                      } /> {
-                      submitted && !password && (<div className="help-block">Password is required</div>)
-                    } </div>
-                  <div className="form-group">
-                    <button className="btn btn-primary">Login</button>
-                  </div>
-                </form>
-              </Col>
-            </FormGroup>
-          </Col>
-          <Col sm={4}>
-          </Col>
-        </FormGroup>
+          <FormGroup row>
+            <Col sm={4}></Col>
+            <Col sm={12}  md={4} className="logo-container">
+              <FormGroup row>
+                <Col sm={12}>
+                  <Logo logo={logo} />
+                </Col>
+              </FormGroup>
+              <form name="form"onSubmit={this.handleSubmit}>
+                <Card>
+                  <CardBody>
+                    <FormGroup row className={"margin-bottom_0"}>
+                  <Col sm={12}>
+                    <div style={{display: "none"}}>
+                      <Suspense fallback={<div>Loading...</div>}>
+                        <AlertPage />
+                      </Suspense>
+                    </div>
+                    
+                      <div className={"form-group"}>
+                        <label htmlFor="username">TÊN ĐĂNG NHẬP</label>
+                        <input type="text" className="form-control" name="username" placeholder="Nhập tên đăng nhập"
+                          value={username} onChange={this.handleChange} autoFocus/> 
+                        {submitted && !username && (<div className="help-block pull-right">Vui lòng nhập tên đăng nhập</div>)} </div>
+
+
+                      <div className={"form-group"}>
+                        <label htmlFor="password">MẬT KHẨU</label>
+                        <input type="password" className="form-control" name="password" placeholder="Nhập mật khẩu"
+                          value={password} onChange={this.handleChange} /> 
+                        {submitted && !password && (<div className="help-block">Vui lòng nhập mật khẩu</div>)} 
+                      </div>
+
+                      
+                    
+                  </Col>
+                </FormGroup>
+                  </CardBody>
+                  <CardFooter>
+                    <div className='login-button'><button className="btn"><span>Đăng nhập</span></button></div>
+                  </CardFooter>
+                  </Card>
+              </form>
+            </Col>
+            <Col sm={4}></Col>
+          </FormGroup>
         
       <FormGroup row>
         <Col sm={12}>

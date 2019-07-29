@@ -5,9 +5,9 @@ export class Logo extends Component {
 
         return (
             <div className="text-center">
-                <span className="text-center">
+                <div className="text-center test">
                     <img className="logo-solid" src={this.props.logo} alt=""></img>
-                </span>
+                </div>
                 
             </div>
         )
