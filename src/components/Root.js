@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import {App} from '../App'
 // setup fake backend
 import { configureFakeBackend } from '../helpers/index';
-configureFakeBackend();
+//configureFakeBackend();
 
 const Root = ({ store }) => (
   <Provider store={store} >
