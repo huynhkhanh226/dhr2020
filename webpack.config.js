@@ -350,8 +350,8 @@ module.exports = env => {
     externals: {
       // global app config object
       config: JSON.stringify({
-          apiUrl: process.env.API_URL
-          //apiUrl: 'http://localhost:2016'
+          //apiUrl: process.env.API_URL
+          apiUrl: 'http://localhost:2016'
       })
   }
   };

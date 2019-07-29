@@ -96,7 +96,7 @@ class LoginPage extends React.Component {
                 </FormGroup>
                   </CardBody>
                   <CardFooter>
-                    <div className='login-button'><button className="btn"><span>Đăng nhập</span></button></div>
+                    <div className='login-button'><button className="btn"><span>ĐĂNG NHẬP</span></button></div>
                   </CardFooter>
                   </Card>
               </form>

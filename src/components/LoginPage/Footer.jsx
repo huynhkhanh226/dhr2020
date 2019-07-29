@@ -9,7 +9,6 @@ export class Footer extends Component {
              footerLogo: require('../../assets/images/footer-logo.svg')
         }
     }
-    
     render() {
         return (<div className="login-footer">
             <FormGroup row>

@@ -1,5 +1,6 @@
 $bgcolor: lightblue;
-$bgImage: "../../assets/images/bg.png";
+$bgImage: "../../assets/images/bg.svg";
+$buttonBg: "../../assets/images/button_bg.svg";
 $textcolor: #333;
 $fontsize: 13px;
 
@@ -46,24 +47,43 @@ html {
   font-family: "Source Sans Pro", sans-serif;
 }
 
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .logo-container {
   background-color: #ffffff;
-  margin-top: 8%;
+  margin-top: calc(100%/2 - 490px);
   opacity: 0.8;
+  .card-footer:last-child {
+    border-radius: 0px !important;
+  }
   .card-footer{
-    background-color: $primary;
+    background-image: url($buttonBg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
     padding: 0px;
+    border-top: none;
     button{
       float: right;
       color: $white;
-      
-  }
+      span{
+        float: right;
+      }
+    }
   }
   .card-body{
     padding: 0px;
   }
   .card{
     border: none;
+    border-radius: none !important;
   }
   .logo-solid {
     padding: 5px 14px 14px 14px;
@@ -71,20 +91,23 @@ html {
     border-radius: 50%;
     margin-top: 25px;
   }
-  
+  img{
+    animation: App-logo-spin infinite 20s linear;
+  }
   .logo-dotted {
     padding: 5px 14px 14px 14px;
     border: 1px dotted #ccc;
     border-radius: 50%;
+    
   }
   .form-control{
     border: none;
-    border-bottom: 1px solid $pink;
+    border-bottom: 1px solid $primary;
     border-radius: 0px;
   }
   .form-control:focus{
     border: none;
-    border-bottom: 1px solid $pink;
+    border-bottom: 1px solid $orange;
     border-radius: 0px;
     box-shadow: none;;
   }
