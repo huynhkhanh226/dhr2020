@@ -13,7 +13,7 @@ import {
     DropdownItem } from 'reactstrap';
 import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBell, faHome, faChevronDown, faTasks } from '@fortawesome/free-solid-svg-icons'
+import { faBell, faHome, faChevronDown, faTasks, faPlus, faUser } from '@fortawesome/free-solid-svg-icons'
 export class TopMenu extends Component {
     constructor(props) {
         super(props);
@@ -39,15 +39,17 @@ export class TopMenu extends Component {
                   <NavItem>
                     <NavLink href="/components/" className="text-primary"><FontAwesomeIcon icon={faBell} /></NavLink>
                   </NavItem>
+                  <NavItem>
+                    <NavLink href="/components/" className="text-primary" style={{padding: '5px 9px', border: '1px solid #ccc', borderRadius: '50%'}} ><FontAwesomeIcon icon={faUser} /></NavLink>
+                  </NavItem>
                   <UncontrolledDropdown nav inNavbar className="menu-expand">
                     <DropdownToggle nav caret>
                     <FontAwesomeIcon icon={faChevronDown}/>
                     </DropdownToggle>
                     <DropdownMenu right>
-                      <DropdownItem>
-                        <FontAwesomeIcon icon={faTasks}/> Management
-                      </DropdownItem>
+                      <div style={{marginLeft: '25px'}}><FontAwesomeIcon icon={faTasks}/> Management</div>
                       <DropdownItem divider />
+                      <div style={{marginLeft: '25px', marginBottom: '10px'}}><FontAwesomeIcon icon={faPlus} style={{color: '#17a2b8'}}/> Thêm</div>
                       <div className='dropdown-menu-notify'>
                         <DropdownItem>
                           14:00  Hội thảo chiến lược 1
@@ -59,10 +61,7 @@ export class TopMenu extends Component {
                           14:00  Hội thảo chiến lược 1
                         </DropdownItem>
                       </div>
-                      
-                      <DropdownItem>
-                          <Link to="/login" className="full-right" style={{float: 'right'}}>Đăng xuất</Link>
-                      </DropdownItem>
+                      <div style={{marginRight: '25px'}}><Link to="/login" className="full-right" style={{float: 'right'}}>Đăng xuất</Link></div>
                     </DropdownMenu>
                   </UncontrolledDropdown>
                 </Nav>
