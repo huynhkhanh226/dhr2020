@@ -1,14 +1,19 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, { Suspense } from 'react';
+//import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {userActions} from '../../_actions/user.actions';
-import MainMenu from './MainMenu.jsx';
-import TopMenu from './TopMenu.jsx';
-import Header from './Header.jsx';
-import EssMenu from './EssMenu.jsx';
-import Footer from '../LoginPage/Footer.jsx';
-
 import './HomePage.scss';
+// import MainMenu from './MainMenu.jsx';
+// import TopMenu from './TopMenu.jsx';
+// import Header from './Header.jsx';
+// import EssMenu from './EssMenu.jsx';
+//import Footer from '../LoginPage/Footer.jsx';
+const MainMenu = React.lazy(() => import( /* webpackChunkName: "MainMenu" */'./MainMenu.jsx'));
+const TopMenu = React.lazy(() => import( /* webpackChunkName: "TopMenu" */'./TopMenu.jsx'));
+const Header = React.lazy(() => import( /* webpackChunkName: "AlertPage" */'./Header.jsx'));
+const EssMenu = React.lazy(() => import( /* webpackChunkName: "AlertPage" */'./EssMenu.jsx'));
+
+
 
 class HomePage extends React.Component {
 
@@ -18,11 +23,18 @@ class HomePage extends React.Component {
         const {user} = this.props;
         return (
             <div className="home-page">
-                <TopMenu />
-                <MainMenu />
-                <Header userName={user.data.user.UserNameU} />
-                <EssMenu />
-                
+                 <Suspense fallback={<div>Loading...</div>}>
+                    <TopMenu />
+                 </Suspense>
+                 <Suspense fallback={<div>Loading...</div>}>
+                    <MainMenu />
+                  </Suspense>
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <Header userName={user.data.user.UserNameU} />
+                  </Suspense>
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <EssMenu />
+                  </Suspense> 
             </div>
 
         );

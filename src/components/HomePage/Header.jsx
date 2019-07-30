@@ -35,24 +35,24 @@ export class Header extends Component {
                     </div>
                     <div className='birthday-list'>
                         <div className='item'>
-                            <img src="https://png.pngtree.com/svg/20170602/user_circle_1048392.png" alt=""/>
+                            <img src={require('../../assets/images/user.png')} alt=""/>
                             <span>Huỳnh Khanh</span>
                         </div>
                         <div className='item'>
-                            <img src="https://png.pngtree.com/svg/20170602/user_circle_1048392.png" alt=""/>
-                            <span>Huỳnh Khanh</span>
+                            <img src={require('../../assets/images/user.png')} alt=""/>
+                            <span>Trí Hào</span>
                         </div>
                         <div className='item'>
-                            <img src="https://png.pngtree.com/svg/20170602/user_circle_1048392.png" alt=""/>
-                            <span>Huỳnh Khanh</span>
+                            <img src={require('../../assets/images/user.png')} alt=""/>
+                            <span>Kim Long</span>
                         </div>
                         <div className='item'>
-                            <img src="https://png.pngtree.com/svg/20170602/user_circle_1048392.png" alt=""/>
-                            <span>Huỳnh Khanh</span>
+                            <img src={require('../../assets/images/user.png')} alt=""/>
+                            <span>Văn Chiện</span>
                         </div>
                         <div className='item'>
-                            <img src="https://png.pngtree.com/svg/20170602/user_circle_1048392.png" alt=""/>
-                            <span>Huỳnh Khanh</span>
+                            <img src={require('../../assets/images/user.png')} alt=""/>
+                            <span>Hoàng Trang</span>
                         </div>
                     </div>
                 </div>

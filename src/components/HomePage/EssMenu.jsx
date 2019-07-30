@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './EssMenu.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faTasks, faList, faAddressBook, faAmbulance } from '@fortawesome/free-solid-svg-icons';
 import {FormGroup, Col, Row, Container, Card, CardImg, CardBody, CardTitle, CardSubtitle} from 'reactstrap';
 import {
     BrowserView,
@@ -43,7 +43,7 @@ export class EssMenu extends Component {
                         <Col sm={3} className="item">
                             <Card>
                                 <CardBody>
-                                    <CardTitle><FontAwesomeIcon icon={faCoffee} style={{color: 'orange', fontSize: '500%'}}/></CardTitle>
+                                    <CardTitle><FontAwesomeIcon icon={faList} style={{color: 'blue', fontSize: '500%'}}/></CardTitle>
                                     <CardSubtitle>Card subtitle</CardSubtitle>
                                 </CardBody>
                             </Card>
@@ -51,7 +51,7 @@ export class EssMenu extends Component {
                         <Col sm={3} className="item">
                             <Card>
                                 <CardBody>
-                                    <CardTitle><FontAwesomeIcon icon={faCoffee} style={{color: 'orange', fontSize: '500%'}}/></CardTitle>
+                                    <CardTitle><FontAwesomeIcon icon={faTasks} style={{color: 'red', fontSize: '500%'}}/></CardTitle>
                                     <CardSubtitle>Card subtitle</CardSubtitle>
                                 </CardBody>
                             </Card>
@@ -59,7 +59,7 @@ export class EssMenu extends Component {
                         <Col sm={3} className="item">
                             <Card>
                                 <CardBody>
-                                    <CardTitle><FontAwesomeIcon icon={faCoffee} style={{color: 'orange', fontSize: '500%'}}/></CardTitle>
+                                    <CardTitle><FontAwesomeIcon icon={faAmbulance} style={{color: 'pink', fontSize: '500%'}}/></CardTitle>
                                     <CardSubtitle>Card subtitle</CardSubtitle>
                                 </CardBody>
                             </Card>
@@ -70,7 +70,7 @@ export class EssMenu extends Component {
                         <Col sm={3} className="item">
                             <Card>
                                 <CardBody>
-                                    <CardTitle><FontAwesomeIcon icon={faCoffee} style={{color: 'orange', fontSize: '500%'}}/></CardTitle>
+                                    <CardTitle><FontAwesomeIcon icon={faAmbulance} style={{color: 'orange', fontSize: '500%'}}/></CardTitle>
                                     <CardSubtitle>Card subtitle</CardSubtitle>
                                 </CardBody>
                             </Card>
@@ -78,7 +78,15 @@ export class EssMenu extends Component {
                         <Col sm={3} className="item">
                             <Card>
                                 <CardBody>
-                                    <CardTitle><FontAwesomeIcon icon={faCoffee} style={{color: 'blue', fontSize: '500%'}}/></CardTitle>
+                                    <CardTitle><FontAwesomeIcon icon={faList} style={{color: 'blue', fontSize: '500%'}}/></CardTitle>
+                                    <CardSubtitle>Card subtitle</CardSubtitle>
+                                </CardBody>
+                            </Card>
+                        </Col>
+                        <Col sm={3} className="item">
+                            <Card>
+                                <CardBody>
+                                    <CardTitle><FontAwesomeIcon icon={faTasks} style={{color: 'pink', fontSize: '500%'}}/></CardTitle>
                                     <CardSubtitle>Card subtitle</CardSubtitle>
                                 </CardBody>
                             </Card>
@@ -91,21 +99,13 @@ export class EssMenu extends Component {
                                 </CardBody>
                             </Card>
                         </Col>
-                        <Col sm={3} className="item">
-                            <Card>
-                                <CardBody>
-                                    <CardTitle><FontAwesomeIcon icon={faCoffee} style={{color: 'pink', fontSize: '500%'}}/></CardTitle>
-                                    <CardSubtitle>Card subtitle</CardSubtitle>
-                                </CardBody>
-                            </Card>
-                        </Col>
                     </Row>
                     <p className='break-down'></p>
                     <Row >
                         <Col sm={3} className="item">
                             <Card>
                                 <CardBody>
-                                    <CardTitle><FontAwesomeIcon icon={faCoffee} style={{color: 'gray', fontSize: '500%'}}/></CardTitle>
+                                    <CardTitle><FontAwesomeIcon icon={faTasks} style={{color: 'gray', fontSize: '500%'}}/></CardTitle>
                                     <CardSubtitle>Card subtitle</CardSubtitle>
                                 </CardBody>
                             </Card>
@@ -113,7 +113,7 @@ export class EssMenu extends Component {
                         <Col sm={3} className="item">
                             <Card>
                                 <CardBody>
-                                    <CardTitle><FontAwesomeIcon icon={faCoffee} style={{color: 'green', fontSize: '500%'}}/></CardTitle>
+                                    <CardTitle><FontAwesomeIcon icon={faList} style={{color: 'green', fontSize: '500%'}}/></CardTitle>
                                     <CardSubtitle>Card subtitle</CardSubtitle>
                                 </CardBody>
                             </Card>
@@ -121,7 +121,7 @@ export class EssMenu extends Component {
                         <Col sm={3} className="item">
                             <Card>
                                 <CardBody>
-                                    <CardTitle><FontAwesomeIcon icon={faCoffee} style={{color: 'orange', fontSize: '500%'}}/></CardTitle>
+                                    <CardTitle><FontAwesomeIcon icon={faAmbulance} style={{color: 'orange', fontSize: '500%'}}/></CardTitle>
                                     <CardSubtitle>Card subtitle</CardSubtitle>
                                 </CardBody>
                             </Card>
@@ -140,7 +140,15 @@ export class EssMenu extends Component {
                         <Col sm={3} className="item">
                             <Card>
                                 <CardBody>
-                                    <CardTitle><FontAwesomeIcon icon={faCoffee} style={{color: 'orange', fontSize: '500%'}}/></CardTitle>
+                                    <CardTitle><FontAwesomeIcon icon={faList} style={{color: 'orange', fontSize: '500%'}}/></CardTitle>
+                                    <CardSubtitle>Card subtitle</CardSubtitle>
+                                </CardBody>
+                            </Card>
+                        </Col>
+                        <Col sm={3} className="item">
+                            <Card>
+                                <CardBody>
+                                    <CardTitle><FontAwesomeIcon icon={faTasks} style={{color: 'orange', fontSize: '500%'}}/></CardTitle>
                                     <CardSubtitle>Card subtitle</CardSubtitle>
                                 </CardBody>
                             </Card>
@@ -156,15 +164,7 @@ export class EssMenu extends Component {
                         <Col sm={3} className="item">
                             <Card>
                                 <CardBody>
-                                    <CardTitle><FontAwesomeIcon icon={faCoffee} style={{color: 'orange', fontSize: '500%'}}/></CardTitle>
-                                    <CardSubtitle>Card subtitle</CardSubtitle>
-                                </CardBody>
-                            </Card>
-                        </Col>
-                        <Col sm={3} className="item">
-                            <Card>
-                                <CardBody>
-                                    <CardTitle><FontAwesomeIcon icon={faCoffee} style={{color: 'orange', fontSize: '500%'}}/></CardTitle>
+                                    <CardTitle><FontAwesomeIcon icon={faAmbulance} style={{color: 'orange', fontSize: '500%'}}/></CardTitle>
                                     <CardSubtitle>Card subtitle</CardSubtitle>
                                 </CardBody>
                             </Card>

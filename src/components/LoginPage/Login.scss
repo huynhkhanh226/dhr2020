@@ -60,7 +60,7 @@ html {
 
 .logo-container {
   background-color: #ffffff;
-  margin-top: calc(100%/2 - 300px);
+  margin-top: 10%; //calc(100%/2 - 500px);
   opacity: 0.8;
   .card-footer:last-child {
     border-radius: 0px !important;

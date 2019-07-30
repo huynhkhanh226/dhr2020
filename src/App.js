@@ -21,7 +21,6 @@ class App extends Component {
 
 
     render() {
-        debugger;
         const { alert } = this.props;
         return (
             <div >
