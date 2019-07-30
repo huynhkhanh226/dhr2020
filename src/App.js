@@ -14,17 +14,17 @@ import {FormGroup, Col , Label} from 'reactstrap';
 class App extends Component {
     constructor(props) {
         super(props);
-        //debugger;
         history.listen((location, action) => { // this.props.clearAlerts();
-            console.log("Hello router");
             this.props.clearAlerts();
         });
     }
 
 
     render() {
+        debugger;
+        const { alert } = this.props;
         return (
-            <div>
+            <div >
                 <div className="container">
                     <FormGroup row>
                     <Col sm={12}>
@@ -51,5 +51,6 @@ function mapState(state) {
 const actionCreators = {
     clearAlerts: alertActions.clear
 };
+
 const connectedApp = connect(mapState, actionCreators)(App);
 export {connectedApp as App};

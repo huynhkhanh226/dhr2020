@@ -4,6 +4,10 @@ import {connect} from 'react-redux';
 import {userActions} from '../../_actions/user.actions';
 import MainMenu from './MainMenu.jsx';
 import TopMenu from './TopMenu.jsx';
+import Header from './Header.jsx';
+import EssMenu from './EssMenu.jsx';
+import Footer from '../LoginPage/Footer.jsx';
+
 import './HomePage.scss';
 
 class HomePage extends React.Component {
@@ -16,15 +20,9 @@ class HomePage extends React.Component {
             <div className="home-page">
                 <TopMenu />
                 <MainMenu />
-                <div className="col-md-6 col-md-offset-3">
-                    <h1>Hi {
-                        user.data.user.UserNameU
-                    }!</h1>
-
-                    <p>
-                        <Link to="/login">Đăng xuất</Link>
-                    </p>
-                </div>
+                <Header userName={user.data.user.UserNameU} />
+                <EssMenu />
+                
             </div>
 
         );

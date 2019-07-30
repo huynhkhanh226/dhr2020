@@ -35,6 +35,7 @@ html {
 #root {
   //background-color: $bgcolor;
   background-image: url($bgImage);
+  background-attachment: fixed;
   color: $textcolor;
   font-size: $fontsize;
   object-fit: contain;
@@ -44,6 +45,7 @@ html {
   background-repeat: no-repeat;
   background-position: center center;
   height: 100%;
+  overflow: auto;
   font-family: "Source Sans Pro", sans-serif;
 }
 
@@ -58,7 +60,7 @@ html {
 
 .logo-container {
   background-color: #ffffff;
-  margin-top: calc(100%/2 - 490px);
+  margin-top: calc(100%/2 - 300px);
   opacity: 0.8;
   .card-footer:last-child {
     border-radius: 0px !important;

@@ -2,13 +2,11 @@ import React, { Suspense } from "react";
 // import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import './Login.scss';
-import { userActions } from "../../_actions/user.actions";
+import { userActions, alertActions } from "../../_actions";
 import { FormGroup, Col,  Card, Button, CardHeader, CardFooter, CardBody,
   CardTitle, CardText } from 'reactstrap';
 import Footer from './Footer.jsx';
 import Logo from './logo.jsx';
-const AlertPage = React.lazy(() => import( /* webpackChunkName: "AlertPage" */
-  "../Alert/AlertPage.jsx"));
 
 
 class LoginPage extends React.Component {
@@ -30,6 +28,7 @@ class LoginPage extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
   }
   componentDidMount() {
     console.log("componentDidMount");
@@ -54,9 +53,8 @@ class LoginPage extends React.Component {
 
   render() { // const { loggingIn } = this.props;
     const { username, password, submitted, logo } = this.state;
+    const { alert } = this.props;
     return (<div>
-     
-      
           <FormGroup row>
             <Col sm={4}></Col>
             <Col sm={12}  md={4} className="logo-container">
@@ -69,13 +67,10 @@ class LoginPage extends React.Component {
                 <Card>
                   <CardBody>
                     <FormGroup row className={"margin-bottom_0"}>
-                  <Col sm={12}>
-                    <div style={{display: "none"}}>
-                      <Suspense fallback={<div>Loading...</div>}>
-                        <AlertPage />
-                      </Suspense>
-                    </div>
-                    
+                      <Col sm={12}>
+                        {alert.message &&
+                            <div className={`alert ${alert.type}`}>{alert.message}</div>
+                        }
                       <div className={"form-group"}>
                         <label htmlFor="username">TÊN ĐĂNG NHẬP</label>
                         <input type="text" className="form-control" name="username" placeholder="Nhập tên đăng nhập"
@@ -88,10 +83,7 @@ class LoginPage extends React.Component {
                         <input type="password" className="form-control" name="password" placeholder="Nhập mật khẩu"
                           value={password} onChange={this.handleChange} /> 
                         {submitted && !password && (<div className="help-block">Vui lòng nhập mật khẩu</div>)} 
-                      </div>
-
-                      
-                    
+                      </div>    
                   </Col>
                 </FormGroup>
                   </CardBody>
@@ -115,13 +107,15 @@ class LoginPage extends React.Component {
 
 function mapState(state) {
   const { loggingIn } = state.authentication;
-  return { loggingIn };
+  const { alert } = state;
+  return { loggingIn, alert };
 }
 
 const actionCreators = {
   getClient: userActions.getClient,
   login: userActions.login,
-  logout: userActions.logout
+  logout: userActions.logout,
+  clearAlerts: alertActions.clear
 };
 
 const connectedLoginPage = connect(mapState, actionCreators)(LoginPage);

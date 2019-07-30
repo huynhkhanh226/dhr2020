@@ -16,8 +16,14 @@ function getClient(username, password) {
         userService.getClientID()
             .then(
                 data => { 
-                    dispatch(success(data));
-                    dispatch(login(username,password));
+                    
+                    if (data.code === 200){
+                        dispatch(success(data));
+                        dispatch(login(username,password));
+                    }else{
+                        dispatch(failure(data.message));
+                        dispatch(alertActions.error(data.message));
+                    }
 
                 },
                 error => {
@@ -46,6 +52,7 @@ function login(username, password) {
         userService.login(username, password)
             .then(
                 data => { 
+                    debugger;
                     dispatch(success(data));
                     if (data.code === 200){
                         history.push('/');
@@ -56,6 +63,7 @@ function login(username, password) {
                    
                 },
                 error => {
+                    debugger;
                     dispatch(failure(error.toString()));
                     dispatch(alertActions.error(error.toString()));
                 }

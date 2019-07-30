@@ -12,6 +12,7 @@ export const staticReduces = {
 const createReducer = asyncReducers =>
   combineReducers({
     authentication,
+    alert,
     ...asyncReducers
   });
 

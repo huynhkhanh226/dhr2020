@@ -44,6 +44,7 @@ function login(username, password) {
   return fetch(`${config.apiUrl}/user/login`, requestOptions)
     .then(handleResponse)
     .then(res => {
+      debugger;
       localStorage.setItem("user", JSON.stringify(res));
       return res;
     });
@@ -77,6 +78,8 @@ function logout() {
 function handleResponse(response) {
   return response.text().then(text => {
     const data = text && JSON.parse(text);
+    debugger;
+    
     if (!response.ok) {
       if (response.status === 401) {
         // auto logout if 401 response returned from api
@@ -85,6 +88,8 @@ function handleResponse(response) {
       }
       alert("Vui lòng đăng nhập.");
       const error = (data && data.message) || response.statusText;
+      debugger;
+      console.log(error)
       return Promise.reject(error);
     }
 

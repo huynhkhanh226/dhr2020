@@ -1,0 +1,24 @@
+.ess-menu{
+    height: auto;
+    position: relative;
+    top: 0px;
+    //overflow: auto;
+    margin: auto;
+    border-top: 1px solid #ccc;
+    background-color: #ffffff;
+    .item{
+        text-align: center;
+        vertical-align: middle;
+        .card{
+            height: 120px;
+            width: 100%;
+            vertical-align: middle;
+            text-align: center;
+            border: none !important;
+        }
+    }
+    .break-down{
+        border-bottom: 1px solid #ccc;
+    }
+    
+}

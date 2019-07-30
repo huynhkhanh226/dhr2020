@@ -10,10 +10,10 @@ const AlertPage = (props) => {
 }
 
 function mapStateToProps(state) {
-    console.log("sdfsmapStateToPropsdfads")
+    console.log("alert mapStateToProps");
+    console.log(state);
     const { alert } = state;
     console.log(alert)
-    
     return { alert };
 }
 
