@@ -20,7 +20,6 @@ Root.propTypes = {
   store: PropTypes.object.isRequired
 }
 
-
 //load goolge font
 WebFont.load({
   google: {
