@@ -59,6 +59,7 @@ html {
 }
 
 .home-page{
+     min-height: calc(100% - 600px);
     .main-menu{
         .navbar{
             background-image: url($bgImage);

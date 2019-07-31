@@ -12,6 +12,7 @@ const MainMenu = React.lazy(() => import( /* webpackChunkName: "MainMenu" */'./M
 const TopMenu = React.lazy(() => import( /* webpackChunkName: "TopMenu" */'./TopMenu.jsx'));
 const Header = React.lazy(() => import( /* webpackChunkName: "AlertPage" */'./Header.jsx'));
 const EssMenu = React.lazy(() => import( /* webpackChunkName: "AlertPage" */'./EssMenu.jsx'));
+const Footer = React.lazy(() => import( /* webpackChunkName: "Footer" */'../Shared/Footer/Footer.jsx'));
 
 
 
@@ -35,6 +36,9 @@ class HomePage extends React.Component {
                   <Suspense fallback={<div>Loading...</div>}>
                     <EssMenu />
                   </Suspense> 
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <Footer />
+                  </Suspense>
             </div>
 
         );

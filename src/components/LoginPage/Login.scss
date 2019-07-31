@@ -57,7 +57,9 @@ html {
     transform: rotate(360deg);
   }
 }
-
+.div-login{
+  min-height: calc(100%);
+}
 .logo-container {
   background-color: #ffffff;
   margin-top: 10%; //calc(100%/2 - 500px);
@@ -127,34 +129,6 @@ html {
   }
 }
 
-.login-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #ffffff;
-  color: #6c757d;
-  font-weight: 700;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 13px;
-  .right-footer {
-    height: 100%;
-    padding-top: 25px;
-  }
-  .left-footer {
-    height: 100%;
-    border-right: 4px dotted #ccc;
-    width: 100%;
-    text-align: center;
-    img {
-      margin-top: 0px;
-    }
-  }
-  .form-group{
-    margin-bottom: 0px;
-  }
-}
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -185,9 +159,6 @@ html {
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) { 
-  .login-footer{
-    display: none;
-  }
   .logo-container {
     margin-top: 0%;
   }

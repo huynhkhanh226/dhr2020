@@ -21,23 +21,17 @@ class App extends Component {
 
 
     render() {
-        const { alert } = this.props;
+        //const { alert } = this.props;
         return (
-            <div >
-                <div className="container">
-                    <FormGroup row>
-                    <Col sm={12}>
-                        <Router history={history}>
+            <div className="container-fluid">
+                   <Router history={history}>
                             <div>
                                 <PrivateRoute exact path="/"
                                     component={HomePage}/>
                                 <Route path="/login"
                                     component={LoginPage}/>
                             </div>
-                        </Router>
-                    </Col>
-                    </FormGroup>
-                </div>
+                   </Router>
             </div>
         );
     }

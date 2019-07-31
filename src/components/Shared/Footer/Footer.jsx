@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {FormGroup, Col} from 'reactstrap';
+import './Footer.scss';
 
 export class Footer extends Component {
     constructor(props) {
         super(props)
     
         this.state = {
-             footerLogo: require('../../assets/images/footer-logo.svg')
+             footerLogo: require('../../../assets/images/footer-logo.svg')
         }
     }
     render() {

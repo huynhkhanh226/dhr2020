@@ -7,7 +7,7 @@ import { FormGroup, Col,  Card, Button, CardHeader, CardFooter, CardBody,
   CardTitle, CardText } from 'reactstrap';
 //import Footer from './Footer.jsx';
 import Logo from './logo.jsx';
-const Footer = React.lazy(() => import( /* webpackChunkName: "Footer" */'./Footer.jsx'));
+const Footer = React.lazy(() => import( /* webpackChunkName: "Footer" */'../Shared/Footer/Footer.jsx'));
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -54,8 +54,8 @@ class LoginPage extends React.Component {
   render() { // const { loggingIn } = this.props;
     const { username, password, submitted, logo } = this.state;
     const { alert } = this.props;
-    return (<div>
-          <FormGroup row>
+    return (<div className="div-login">
+          <FormGroup row >
             <Col sm={4}></Col>
             <Col sm={12}  md={4} className="logo-container">
               <FormGroup row>
@@ -96,13 +96,9 @@ class LoginPage extends React.Component {
             <Col sm={4}></Col>
           </FormGroup>
         
-      <FormGroup row>
-        <Col sm={12}>
-           <Suspense fallback={<div>Loading...</div>}>
-              <Footer />
-           </Suspense>
-        </Col>
-      </FormGroup>
+          <Suspense fallback={<div>Loading...</div>}>
+                  <Footer />
+          </Suspense>
     </div>);
   }
 }
