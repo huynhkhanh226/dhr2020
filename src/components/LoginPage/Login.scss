@@ -29,7 +29,9 @@ $dark: #343a40;
 body,
 html {
   height: 100%;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Source Sans Pro", sans-serif  !important;
+  font-size: $fontsize !important;
+  
 }
 /* Use the variables */
 #root {
@@ -45,8 +47,9 @@ html {
   background-repeat: no-repeat;
   background-position: center center;
   height: 100%;
-  overflow: auto;
   font-family: "Source Sans Pro", sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 @keyframes App-logo-spin {
@@ -58,10 +61,9 @@ html {
   }
 }
 .div-login{
-  min-height: calc(100%);
+  min-height: calc(100vh - 65px);
 }
-.logo-container {
-  background-color: #ffffff;
+.login-container {
   margin-top: 10%; //calc(100%/2 - 500px);
   opacity: 0.8;
   .card-footer:last-child {
@@ -82,9 +84,6 @@ html {
       }
     }
   }
-  .card-body{
-    padding: 0px;
-  }
   .card{
     border: none;
     border-radius: none !important;
@@ -97,6 +96,7 @@ html {
   }
   img{
     animation: App-logo-spin infinite 20s linear;
+    margin-bottom: 25px;
   }
   .logo-dotted {
     padding: 5px 14px 14px 14px;
@@ -159,7 +159,7 @@ html {
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) { 
-  .logo-container {
+  .login-container {
     margin-top: 0%;
   }
 }

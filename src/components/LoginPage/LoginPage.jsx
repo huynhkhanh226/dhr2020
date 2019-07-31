@@ -3,7 +3,7 @@ import React, { Suspense } from "react";
 import { connect } from "react-redux";
 import './Login.scss';
 import { userActions, alertActions } from "../../_actions";
-import { FormGroup, Col,  Card, Button, CardHeader, CardFooter, CardBody,
+import { FormGroup,Row, Col,  Card, Button, CardHeader, CardFooter, CardBody,
   CardTitle, CardText } from 'reactstrap';
 //import Footer from './Footer.jsx';
 import Logo from './logo.jsx';
@@ -54,22 +54,19 @@ class LoginPage extends React.Component {
   render() { // const { loggingIn } = this.props;
     const { username, password, submitted, logo } = this.state;
     const { alert } = this.props;
-    return (<div className="div-login">
+    return (<div>
+          <div className="div-login">
           <FormGroup row >
             <Col sm={4}></Col>
-            <Col sm={12}  md={4} className="logo-container">
-              <FormGroup row>
-                <Col sm={12}>
-                  <Logo logo={logo} />
-                </Col>
-              </FormGroup>
+            <Col sm={4} className="login-container">
               <form name="form"onSubmit={this.handleSubmit}>
                 <Card>
                   <CardBody>
+                    <Logo logo={logo} />
                     <FormGroup row className={"margin-bottom_0"}>
                       <Col sm={12}>
                         {alert.message &&
-                            <div className={`alert ${alert.type}`}>{alert.message}</div>
+                            <div className={`alert-danger-custom alert ${alert.type}`}>{alert.message}</div>
                         }
                       <div className={"form-group"}>
                         <label htmlFor="username">TÊN ĐĂNG NHẬP</label>
@@ -95,9 +92,13 @@ class LoginPage extends React.Component {
             </Col>
             <Col sm={4}></Col>
           </FormGroup>
-        
+          </div>
           <Suspense fallback={<div>Loading...</div>}>
+              <Row>
+                <Col sm={12} style={{paddingLeft: '0px', paddingRight: '0px'}}>
                   <Footer />
+                </Col>
+              </Row>
           </Suspense>
     </div>);
   }

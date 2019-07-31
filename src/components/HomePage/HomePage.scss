@@ -35,7 +35,7 @@ html {
 #root {
   background-color: #F3F3F3;
   background-attachment: fixed;
-  //background-image: none !important;
+  background-image: none !important;
   color: $textcolor;
   font-size: $fontsize;
   object-fit: contain;
@@ -79,11 +79,21 @@ html {
             }
             
         }
+        .main-menu-dropdown{
+            .dropdown-menu{
+                top: 114%;
+                border-radius: 0px;
+                font-size: 12px;
+                .nav-link{
+                    padding: 0px;
+                }
+            }
+        }
     }
     .top-menu{
         .navbar{
             .dropdown-menu-right{
-                top: 125% !important;
+                top: 116% !important;
                 font-size: $fontsize;
                 font-family: $family;
                 border-radius: none;

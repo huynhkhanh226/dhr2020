@@ -52,7 +52,7 @@ function login(username, password) {
         userService.login(username, password)
             .then(
                 data => { 
-                    debugger;
+                    //debugger;
                     dispatch(success(data));
                     if (data.code === 200){
                         history.push('/');
@@ -63,7 +63,7 @@ function login(username, password) {
                    
                 },
                 error => {
-                    debugger;
+                    //debugger;
                     dispatch(failure(error.toString()));
                     dispatch(alertActions.error(error.toString()));
                 }

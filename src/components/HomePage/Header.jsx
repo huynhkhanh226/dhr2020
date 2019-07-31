@@ -9,7 +9,7 @@ export class Header extends Component {
         return (
             <div className='header-intro'>
                 <div className="section_one">
-                    <div style={{marginTop: '18%'}}>
+                    <div style={{marginTop: '14%'}}>
                         <span><strong>CHÀO BUỔI SÁNG!</strong></span>
                     </div>
                     <div>
@@ -17,7 +17,7 @@ export class Header extends Component {
                     </div>
                 </div>
                 <div className="section_two">
-                    <div style={{marginTop: '18%'}}>
+                    <div style={{marginTop: '14%'}}>
                         <span><strong>TP. Hồ Chí Minh</strong></span>
                     </div>
                     <div>

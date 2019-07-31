@@ -44,7 +44,7 @@ function login(username, password) {
   return fetch(`${config.apiUrl}/user/login`, requestOptions)
     .then(handleResponse)
     .then(res => {
-      debugger;
+      //debugger;
       localStorage.setItem("user", JSON.stringify(res));
       return res;
     });
@@ -78,7 +78,7 @@ function logout() {
 function handleResponse(response) {
   return response.text().then(text => {
     const data = text && JSON.parse(text);
-    debugger;
+    //debugger;
     
     if (!response.ok) {
       if (response.status === 401) {
@@ -86,9 +86,9 @@ function handleResponse(response) {
         logout();
         window.location.reload(true);
       }
-      alert("Vui lòng đăng nhập.");
+      //alert("Vui lòng đăng nhập.");
       const error = (data && data.message) || response.statusText;
-      debugger;
+      //debugger;
       console.log(error)
       return Promise.reject(error);
     }

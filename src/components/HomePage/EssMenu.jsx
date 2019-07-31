@@ -136,74 +136,8 @@ export class EssMenu extends Component {
                         </Col>
                     </Row>
                     <p className='break-down'></p>
-                    <Row >
-                        <Col sm={3} className="item">
-                            <Card>
-                                <CardBody>
-                                    <CardTitle><FontAwesomeIcon icon={faList} style={{color: 'orange', fontSize: '500%'}}/></CardTitle>
-                                    <CardSubtitle>Card subtitle</CardSubtitle>
-                                </CardBody>
-                            </Card>
-                        </Col>
-                        <Col sm={3} className="item">
-                            <Card>
-                                <CardBody>
-                                    <CardTitle><FontAwesomeIcon icon={faTasks} style={{color: 'orange', fontSize: '500%'}}/></CardTitle>
-                                    <CardSubtitle>Card subtitle</CardSubtitle>
-                                </CardBody>
-                            </Card>
-                        </Col>
-                        <Col sm={3} className="item">
-                            <Card>
-                                <CardBody>
-                                    <CardTitle><FontAwesomeIcon icon={faCoffee} style={{color: 'orange', fontSize: '500%'}}/></CardTitle>
-                                    <CardSubtitle>Card subtitle</CardSubtitle>
-                                </CardBody>
-                            </Card>
-                        </Col>
-                        <Col sm={3} className="item">
-                            <Card>
-                                <CardBody>
-                                    <CardTitle><FontAwesomeIcon icon={faAmbulance} style={{color: 'orange', fontSize: '500%'}}/></CardTitle>
-                                    <CardSubtitle>Card subtitle</CardSubtitle>
-                                </CardBody>
-                            </Card>
-                        </Col>
-                    </Row>
-                    <Row >
-                        <Col sm={3} className="item">
-                            <Card>
-                                <CardBody>
-                                    <CardTitle><FontAwesomeIcon icon={faCoffee} style={{color: 'orange', fontSize: '500%'}}/></CardTitle>
-                                    <CardSubtitle>Card subtitle</CardSubtitle>
-                                </CardBody>
-                            </Card>
-                        </Col>
-                        <Col sm={3} className="item">
-                            <Card>
-                                <CardBody>
-                                    <CardTitle><FontAwesomeIcon icon={faCoffee} style={{color: 'orange', fontSize: '500%'}}/></CardTitle>
-                                    <CardSubtitle>Card subtitle</CardSubtitle>
-                                </CardBody>
-                            </Card>
-                        </Col>
-                        <Col sm={3} className="item">
-                            <Card>
-                                <CardBody>
-                                    <CardTitle><FontAwesomeIcon icon={faCoffee} style={{color: 'orange', fontSize: '500%'}}/></CardTitle>
-                                    <CardSubtitle>Card subtitle</CardSubtitle>
-                                </CardBody>
-                            </Card>
-                        </Col>
-                        <Col sm={3} className="item">
-                            <Card>
-                                <CardBody>
-                                    <CardTitle><FontAwesomeIcon icon={faCoffee} style={{color: 'orange', fontSize: '500%'}}/></CardTitle>
-                                    <CardSubtitle>Card subtitle</CardSubtitle>
-                                </CardBody>
-                            </Card>
-                        </Col>
-                    </Row>
+                    
+                    
                 </Container>
                 
             </div>

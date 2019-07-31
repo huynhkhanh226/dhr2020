@@ -1,5 +1,5 @@
 .ess-menu{
-    height: auto;
+    min-height: calc(100vh - 276px);
     position: relative;
     top: 0px;
     //overflow: auto;
@@ -19,6 +19,9 @@
     }
     .break-down{
         border-bottom: 1px solid #ccc;
+    }
+    .form-group:last-child{
+        padding-bottom: 0px;
     }
     
 }
