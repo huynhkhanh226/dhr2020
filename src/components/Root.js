@@ -4,10 +4,9 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import WebFont from 'webfontloader';
 import {App} from '../App';
-import TestA  from '../routes/routes.jsx';
 // setup fake backend
 import { configureFakeBackend } from '../helpers/index';
-//configureFakeBackend();
+configureFakeBackend();
 
 const Root = ({ store }) => (
   <Provider store={store} >

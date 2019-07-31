@@ -20,8 +20,8 @@ class LoginPage extends React.Component {
     }
 
     this.state = {
-      username: "",
-      password: "",
+      username: "NV01",
+      password: "123",
       submitted: false,
       logo: require('../../assets/images/chanh_svg.svg')
     };
