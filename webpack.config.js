@@ -15,6 +15,7 @@ const TerserJSPlugin = require("terser-webpack-plugin");
 //var TARGET = process.env.npm_lifecycle_event;
 
 //****************************************************************************************************/
+
 //Export
 module.exports = env => {
   var dotEnv = parts.getEnvKeys(env.ENVIRONMENT);
@@ -291,8 +292,8 @@ module.exports = env => {
         new MiniCssExtractPlugin({
           // Options similar to the same options in webpackOptions.output
           // both options are optional
-          filename: "assets/css/[id].[name].css",
-          chunkFilename: "assets/css/[id].[name].css"
+          filename: "assets/css/[id].[name].[hash].css",
+          chunkFilename: "assets/css/[id].[name].[hash].css"
         })
       ]
     }
@@ -303,8 +304,8 @@ module.exports = env => {
     entry: path.join(__dirname, "./src/index.js"),
     output: {
       path: path.resolve(__dirname, "dist"),
-      filename: "assets/js/[name].bundles.js",
-      chunkFilename: "assets/js/components/[id].[name].bundle.js",
+      filename: "assets/js/[name].[contenthash].bundles.js",
+      chunkFilename: "assets/js/components/[id].[name].[contenthash].bundle.js",
       //chunkFilename: "chunk-[name].[contenthash].js"
       //publicPath: '/' + process.env.PUBLIC_URL + '/'
     },

@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 // import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import './Login.scss';
-import { userActions, alertActions } from "../../_actions";
+import { userActions, alertActions } from "../../actions";
 import { FormGroup,Row, Col,  Card, Button, CardHeader, CardFooter, CardBody,
   CardTitle, CardText } from 'reactstrap';
 //import Footer from './Footer.jsx';

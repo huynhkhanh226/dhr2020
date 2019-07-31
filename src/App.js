@@ -8,7 +8,7 @@ import {history} from './helpers/index';
 import {PrivateRoute} from './components/PrivateRoute.jsx';
 import {HomePage} from './components/HomePage/HomePage.jsx';
 import {LoginPage} from './components/LoginPage/LoginPage.jsx';
-import { alertActions } from "./_actions/alert.actions";
+import { alertActions } from "./actions/alert.actions";
 import {FormGroup, Col , Label} from 'reactstrap';
 
 class App extends Component {

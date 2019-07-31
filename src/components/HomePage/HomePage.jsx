@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 //import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {userActions} from '../../_actions/user.actions';
+import {userActions} from '../../actions/user.actions';
 import './HomePage.scss';
 // import MainMenu from './MainMenu.jsx';
 // import TopMenu from './TopMenu.jsx';
@@ -10,8 +10,8 @@ import './HomePage.scss';
 //import Footer from '../LoginPage/Footer.jsx';
 const MainMenu = React.lazy(() => import( /* webpackChunkName: "MainMenu" */'./MainMenu.jsx'));
 const TopMenu = React.lazy(() => import( /* webpackChunkName: "TopMenu" */'./TopMenu.jsx'));
-const Header = React.lazy(() => import( /* webpackChunkName: "AlertPage" */'./Header.jsx'));
-const EssMenu = React.lazy(() => import( /* webpackChunkName: "AlertPage" */'./EssMenu.jsx'));
+const Header = React.lazy(() => import( /* webpackChunkName: "Header" */'./Header.jsx'));
+const EssMenu = React.lazy(() => import( /* webpackChunkName: "EssMenu" */'./EssMenu.jsx'));
 const Footer = React.lazy(() => import( /* webpackChunkName: "Footer" */'../Shared/Footer/Footer.jsx'));
 
 
