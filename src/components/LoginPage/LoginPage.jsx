@@ -44,16 +44,21 @@ class LoginPage extends React.Component {
 
     this.setState({ submitted: true });
     const { username, password } = this.state;
+    var redirect = "/";
+    if (this.props.location.state != undefined){
+      this.redirect = this.props.location.state.redirect;
+    }
+    
+    console.log(this.redirect);
     if (username && password) {
-      this.props.getClient(username, password);
-      // alert("abc");
-      // this.props.login(username, password);
+      this.props.login(username, password, this.redirect);
     }
   }
 
   render() { // const { loggingIn } = this.props;
     const { username, password, submitted, logo } = this.state;
     const { alert } = this.props;
+    
     return (<div>
           <div className="div-login">
           <FormGroup row >
@@ -107,17 +112,15 @@ class LoginPage extends React.Component {
 function mapState(state) {
   const { loggingIn } = state.authentication;
   const { alert } = state;
+
   return { loggingIn, alert };
 }
 
 const actionCreators = {
-  getClient: userActions.getClient,
   login: userActions.login,
-  logout: userActions.logout,
-  clearAlerts: alertActions.clear
+  logout: userActions.logout
+  //clearAlerts: alertActions.clear
 };
 
-const connectedLoginPage = connect(mapState, actionCreators)(LoginPage);
-export {
-  connectedLoginPage as LoginPage
-};
+const Login = connect(mapState, actionCreators)(LoginPage);
+export default Login

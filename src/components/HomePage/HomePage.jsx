@@ -1,8 +1,10 @@
 import React, { Suspense } from 'react';
-//import {Link} from 'react-router-dom';
+import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {userActions} from '../../actions/user.actions';
 import './HomePage.scss';
+import W00F1000 from '../W0X/W00/W00F1000/W00F1000';
+import routes from '../../routes/routes';
 // import MainMenu from './MainMenu.jsx';
 // import TopMenu from './TopMenu.jsx';
 // import Header from './Header.jsx';
@@ -24,21 +26,33 @@ class HomePage extends React.Component {
         const {user} = this.props;
         return (
             <div className="home-page">
-                 <Suspense fallback={<div>Loading...</div>}>
+              <Router>
+                  <Suspense fallback={<div>Loading...</div>}>
                     <TopMenu />
                  </Suspense>
                  <Suspense fallback={<div>Loading...</div>}>
                     <MainMenu />
                   </Suspense>
                   <Suspense fallback={<div>Loading...</div>}>
-                    <Header userName={user.data.user.UserNameU} />
-                  </Suspense>
-                  <Suspense fallback={<div>Loading...</div>}>
-                    <EssMenu />
+                    <div className="khanh-test">
+                        <Switch>
+                              {routes.map((route, idx) => {
+                                console.log(route);
+                                return route.component ? (
+                                  <Route
+                                    key={idx}
+                                    path={route.path}
+                                    exact={route.exact}
+                                    name={route.name}
+                                    render={props => (
+                                      <route.component {...props} />
+                                    )} />
+                                ) : (null);
+                              })}
+                        </Switch>
+                    </div>
                   </Suspense> 
-                  <Suspense fallback={<div>Loading...</div>}>
-                    <Footer />
-                  </Suspense>
+                  </Router>
             </div>
 
         );
@@ -56,7 +70,9 @@ const actionCreators = {
     deleteUser: userActions.delete
 }
 
-const connectedHomePage = connect(mapState, actionCreators)(HomePage);
-export {
-    connectedHomePage as HomePage
-};
+const Home = connect(mapState, actionCreators)(HomePage);
+// export {
+//     connectedHomePage as HomePage
+// };
+
+export default Home

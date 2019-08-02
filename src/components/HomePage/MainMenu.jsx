@@ -1,19 +1,18 @@
 import React, { Component } from "react";
-import {Route} from 'react-router-dom';
 import {
   Collapse,
   Navbar,
   NavbarToggler,
   NavbarBrand,
   Nav,
+  NavLink as BNavLink,
   NavItem,
-  NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
-import { Link, NavLink as LinkReact, withRouter } from "react-router-dom";
+import { Link, NavLink, withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBell,
@@ -48,43 +47,49 @@ export class MainMenu extends Component {
                 </DropdownToggle>
                 <DropdownMenu left={'left'}>
                   <DropdownItem>
-                    <NavLink href="/W00F1000">
-                      <span style={{ color: "black" }}>Phân quyền</span>
-                    </NavLink>
+                    <NavLink
+                    className="nav-link"
+                    to={{ pathname: "/W00F1000", state: { pass: "some data" } }}>
+                    Phân quyền
+                  </NavLink>
                   </DropdownItem>
                   <DropdownItem>
-                    <NavLink href="/W00F1000">
-                      <span style={{ color: "black" }}>Thiết lập chung</span>
+                    <NavLink
+                      className="nav-link"
+                      to={{ pathname: "/W00F1000", state: { pass: "some data" } }}>
+                      Phân quyền
                     </NavLink>
                   </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>
-                    <NavLink href="/W00F1000">
-                      <span style={{ color: "black" }}>Tùy chọn</span>
+                    <NavLink
+                      className="nav-link"
+                      to={{ pathname: "/W00F1000", state: { pass: "some data" } }}>
+                      Phân quyền
                     </NavLink>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
               <NavItem>
-                <NavLink href="#">Danh mục</NavLink>
+                <BNavLink href="#">Danh mục</BNavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#">Tuyển dụng</NavLink>
+                <BNavLink href="#">Tuyển dụng</BNavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#">Nhân sự - Bảo hiểm</NavLink>
+                <BNavLink href="#">Nhân sự - Bảo hiểm</BNavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#">Công phép - Lương</NavLink>
+                <BNavLink href="#">Công phép - Lương</BNavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#">Đào tạo - Đánh giá</NavLink>
+                <BNavLink href="#">Đào tạo - Đánh giá</BNavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#">Trang thiết bị lao động</NavLink>
+                <BNavLink href="#">Trang thiết bị lao động</BNavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#">Truy vấn - Báo cáo</NavLink>
+                <BNavLink href="#">Truy vấn - Báo cáo</BNavLink>
               </NavItem>
             </Nav>
           </Collapse>
@@ -93,5 +98,5 @@ export class MainMenu extends Component {
     );
   }
 }
+export default withRouter(MainMenu);
 
-export default MainMenu;

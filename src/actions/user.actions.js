@@ -5,12 +5,12 @@ import {alertActions} from './alert.actions';
 
 
 export const userActions = {
-    getClient,
     login,
-    logout
+    logout,
+    auth
 };
 
-function getClient(username, password) {
+function login(username, password, redirect) {
     return dispatch => {
         dispatch(request({ username: username, token: "" }));
         userService.getClientID()
@@ -19,7 +19,7 @@ function getClient(username, password) {
                     
                     if (data.code === 200){
                         dispatch(success(data));
-                        dispatch(login(username,password));
+                        dispatch(auth(username,password, redirect));
                     }else{
                         dispatch(failure(data.message));
                         dispatch(alertActions.error(data.message));
@@ -46,7 +46,7 @@ function getClient(username, password) {
  * login function 
  */
 
-function login(username, password) {
+function auth(username, password, redirect) {
     return dispatch => {
         dispatch(request({ username : username }));
         userService.login(username, password)
@@ -55,7 +55,7 @@ function login(username, password) {
                     //debugger;
                     dispatch(success(data));
                     if (data.code === 200){
-                        history.push('/');
+                        history.push(redirect || "/");
                     }else{
                         dispatch(failure(data.message));
                         dispatch(alertActions.error(data.message));
