@@ -31,8 +31,11 @@ class App extends Component {
             <div className="container-fluid">
                 <Router history={history}>
                     <React.Suspense fallback={loading()}>
-                        <PrivateRoute exact path="/" component={Home} />
-                        <PrivateRoute exact path="/home" component={Home} />
+                        <PrivateRoute exact path="/" component={Home}>
+                                <Route exact path="/home" component={Home} />
+                        </PrivateRoute>
+                        
+                        
                         <Route path="/login" component={Login} />
                     </React.Suspense>
                 </Router>
