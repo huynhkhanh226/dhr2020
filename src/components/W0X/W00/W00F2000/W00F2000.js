@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
 
-export class W00F1000 extends Component {
-
+export class W00F2000 extends Component {
     render() {
-        debugger;
         return (
             <div>
-                Hello W00F1000
+                Hello W00F2000
             </div>
         )
     }
 }
 
-export default W00F1000
+export default W00F2000

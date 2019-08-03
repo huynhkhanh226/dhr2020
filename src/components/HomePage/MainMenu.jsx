@@ -56,7 +56,7 @@ export class MainMenu extends Component {
                   <DropdownItem>
                     <NavLink
                       className="nav-link"
-                      to={{ pathname: "/W00F1000", state: { pass: "some data" } }}>
+                      to={{ pathname: "/W00F2000", state: { pass: "some data" } }}>
                       Phân quyền
                     </NavLink>
                   </DropdownItem>

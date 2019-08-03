@@ -4,7 +4,9 @@ import {connect} from 'react-redux';
 import {userActions} from '../../actions/user.actions';
 import './HomePage.scss';
 import W00F1000 from '../W0X/W00/W00F1000/W00F1000';
+import RouterView from '../../routes/RouterView';
 import routes from '../../routes/routes';
+import {FormGroup, Row, Col} from 'reactstrap';
 // import MainMenu from './MainMenu.jsx';
 // import TopMenu from './TopMenu.jsx';
 // import Header from './Header.jsx';
@@ -23,6 +25,7 @@ class HomePage extends React.Component {
     componentDidMount() { // this.props.getUsers();
     }
     render() {
+      debugger;
         const {user} = this.props;
         return (
             <div className="home-page">
@@ -35,21 +38,17 @@ class HomePage extends React.Component {
                   </Suspense>
                   <Suspense fallback={<div>Loading...</div>}>
                     <div className="khanh-test">
-                        <Switch>
-                              {routes.map((route, idx) => {
-                                console.log(route);
-                                return route.component ? (
-                                  <Route
-                                    key={idx}
-                                    path={route.path}
-                                    exact={route.exact}
-                                    name={route.name}
-                                    render={props => (
-                                      <route.component {...props} />
-                                    )} />
-                                ) : (null);
-                              })}
-                        </Switch>
+                      <FormGroup>
+                          <Row>
+                            <Col sm={6}>
+                              <RouterView name="a" routes={this.props.childRoutes} />
+                            </Col>
+                            <Col sm={6}>
+                              <RouterView name="b" routes={this.props.childRoutes} />
+                            </Col>
+                          </Row>
+                      </FormGroup>
+                        
                     </div>
                   </Suspense> 
                   </Router>

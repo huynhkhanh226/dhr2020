@@ -55,7 +55,7 @@ function auth(username, password, redirect) {
                     //debugger;
                     dispatch(success(data));
                     if (data.code === 200){
-                        history.push(redirect || "/");
+                        history.push(redirect || "/home");
                     }else{
                         dispatch(failure(data.message));
                         dispatch(alertActions.error(data.message));

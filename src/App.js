@@ -6,6 +6,8 @@ import { Route, Router, Redirect } from "react-router-dom";
 import { history } from './helpers/index';
 import { PrivateRoute } from './components/PrivateRoute.jsx';
 import { alertActions } from "./actions/alert.actions";
+import routes from './routes/routes';
+import RouterView from './routes/RouterView';
 
 
 const Login = React.lazy(() => import('./components/LoginPage/LoginPage.jsx'));
@@ -29,14 +31,18 @@ class App extends Component {
         console.log(alert);
         return (
             <div className="container-fluid">
-                <Router history={history}>
+                {/* <Router history={history}>
                     <React.Suspense fallback={loading()}>
-                        <PrivateRoute exact path="/" component={Home}>
+                        {<PrivateRoute exact path="/" component={Home}>
                                 <Route exact path="/home" component={Home} />
                         </PrivateRoute>
+                        <Route path="/login" component={Login} /> }
                         
-                        
-                        <Route path="/login" component={Login} />
+                    </React.Suspense>
+                </Router> */}
+                <Router history={history}>
+                    <React.Suspense fallback={loading()}>
+                        <RouterView routes={routes}></RouterView>
                     </React.Suspense>
                 </Router>
             </div>
