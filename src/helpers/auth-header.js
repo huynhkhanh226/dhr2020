@@ -9,7 +9,7 @@ export function authHeader() {
   debugger;
     let user = JSON.parse(localStorage.getItem("user"));
     return { 
-      "Content-Type": "application/json",
+        "Content-Type": "application/json",
         token: user.token };
 }
 

@@ -4,14 +4,18 @@ import { connect } from 'react-redux';
 import "@/App.scss";
 import { Route, Router, Redirect, Switch } from "react-router-dom";
 import { history } from './helpers/index';
+import { PrivateRoute } from './components/PrivateRoute.jsx';
 import { alertActions } from "./actions/alert.actions";
 import getRoutes from './routes/routes';
 import RouterView from './routes/RouterView';
-import { loading } from './components/Shared/Loading/Loading';
 //import RouterView from "react-router-view";
 const routes = getRoutes();
+
 // const Login = React.lazy(() => import('./components/LoginPage/LoginPage.jsx'));
 // const Home = React.lazy(() => import('./components/HomePage/HomePage.jsx'));
+
+
+const loading = () => <div className="text-center"></div>;
 
 
 class App extends Component {
@@ -35,6 +39,13 @@ class App extends Component {
         console.log(alert);
         return (
             <div className="container-fluid">
+                {/*  <Router history={history}>
+                    <React.Suspense fallback={loading()}>
+                        <PrivateRoute exact path="/" component={Home}/>
+                        <Route path='/login' component={Login} />
+                    </React.Suspense>
+                </Router>  */}
+
                  <Router history={history}>
                     <React.Suspense fallback={loading()}>
                     <Switch>

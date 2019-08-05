@@ -7,6 +7,7 @@ const initialState = user !== null ? { loggedIn: true, user } : {};
 export function authentication(state = initialState, action) {
   debugger;
   switch (action.type) {
+    //secret
     case userConstants.CLIENTID_REQUEST:
       return {
         username: action.client.username,
@@ -20,7 +21,7 @@ export function authentication(state = initialState, action) {
     case userConstants.CLIENTID_FAILURE:
       return {};
 
-
+    //Login
     case userConstants.LOGIN_REQUEST:
       return {
         loggingIn: true,
@@ -34,6 +35,7 @@ export function authentication(state = initialState, action) {
     case userConstants.LOGIN_FAILURE:
       return {};
 
+    //Logout
     case userConstants.LOGOUT_REQUEST:
       return {};
     case userConstants.LOGOUT_SUCCESS:
@@ -44,7 +46,7 @@ export function authentication(state = initialState, action) {
           message: action.message
       };
 
-
+    //default
     default:
       return state
   }

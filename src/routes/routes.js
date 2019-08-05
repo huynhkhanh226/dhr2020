@@ -1,5 +1,5 @@
 import React from 'react';
-import {asyncComponent} from "./asyncComponent";
+import { asyncComponent } from "./asyncComponent";
 // const W00F1000 = React.lazy(() => import(/* webpackChunkName: "W00F1000" */'../components/W0X/W00/W00F1000/W00F1000'));
 // const W00F2000 = React.lazy(() => import(/* webpackChunkName: "W00F2000" */'../components/W0X/W00/W00F2000/W00F2000'));
 // const W00F3000 = React.lazy(() => import(/* webpackChunkName: "W00F3000" */'../components/W0X/W00/W00F3000/W00F3000'));
@@ -16,60 +16,59 @@ import Index from '../components/Layout/Index';
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 export default function () {
- const routes = [
-  { 
-    path: '/login', 
-    exact: true, 
-    name: 'login',
-    isRequiredAuth: false,
-    component:  Index
-  },
-  
-  { 
-    path: '/', 
-    exact: true, 
-    name: 'Home',
-    isRequiredAuth: true,
-    component:  Home,
-    childRoutes: [
-      { 
-        path: '/W00F1000', 
-        //exact: true, 
-        name: 'W00F1000',
-        isRequiredAuth: true,
-        component:  W00F1000,
-        view: 'a',
-        childRoutes: [
-          { 
-            path: '/W00F1000/W00F2000', 
-            //exact: true, 
-            name: 'W00F2000',
-            isRequiredAuth: true,
-            component:  W00F2000,
-            view: 'b'
-          }    
-        ]
-      },
-      { 
-        path: '/W00F2000', 
-        exact: true, 
-        name: 'W00F2000',
-        isRequiredAuth: true,
-        component:  W00F2000,
-        view: 'b'
-        
-      },
-      { 
-        path: '/W00F3000', 
-        exact: true, 
-        name: 'W00F3000',
-        isRequiredAuth: true,
-        component:  W00F3000,
-        view: 'c'
-      }
-    ]
-  }
-];
- return routes;
+  const routes = [
+    {
+      path: '/login',
+      exact: true,
+      name: 'login',
+      isRequiredAuth: false,
+      component: Login
+    },
+    {
+      path: '/',
+      exact: true,
+      name: 'Home',
+      isRequiredAuth: true,
+      component: Home,
+      childRoutes: [
+        {
+          path: '/W00F1000',
+          //exact: true, 
+          name: 'W00F1000',
+          isRequiredAuth: true,
+          component: W00F1000,
+          view: 'a',
+          childRoutes: [
+            {
+              path: '/W00F1000/W00F2000',
+              //exact: true, 
+              name: 'W00F2000',
+              isRequiredAuth: true,
+              component: W00F2000,
+              view: 'b'
+            }
+          ]
+        },
+        {
+          path: '/W00F2000',
+          exact: true,
+          name: 'W00F2000',
+          isRequiredAuth: true,
+          component: W00F2000,
+          view: 'b'
+
+        },
+        {
+          path: '/W00F3000',
+          exact: true,
+          name: 'W00F3000',
+          isRequiredAuth: true,
+          component: W00F3000,
+          view: 'c'
+        }
+      ]
+    }
+  ];
+  return routes;
 }
 

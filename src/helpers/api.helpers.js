@@ -1,7 +1,6 @@
 import config from "config";
-const url = `${
-    config.apiUrl
-}`;
+
+const url = `${config.apiUrl}`;
 
 
 export function urlAPI(subUrl = '') {
@@ -15,10 +14,10 @@ export function handleResponse(response) {
             if (response.status === 401) {
                 // auto logout if 401 response returned from api
                 // logout();
-                // location.reload(true);
-                alert("auto logout if 401 response returned from api");
+                location.reload(true);
+                //alert("auto logout if 401 response returned from api");
             }
-            alert("Vui lòng đăng nhập.");
+            //alert("Vui lòng đăng nhập.");
             const error = (data && data.message) || response.statusText;
             return Promise.reject(error);
         }

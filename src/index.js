@@ -10,7 +10,7 @@ import '../public/favicon.ico';
 import configureStore from './configs/configureStore';
 //import createReducer from './configuration/createReducer';
 //const store = createStore(createReducer);
-import Root from './components/Root';
+import Root from './Root';
 const store = configureStore();
 //store.injectReducer("rootReducer3", rootReducer3);
 //store.reducerManager.add("rootReducer3", rootReducer3);

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import WebFont from 'webfontloader';
-import {App} from '../App';
+import {App} from './App';
 // setup fake backend
-import { configureFakeBackend } from '../helpers/index';
+import { configureFakeBackend } from './helpers/index';
 //configureFakeBackend();
 
 const Root = ({ store }) => (

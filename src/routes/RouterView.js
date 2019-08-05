@@ -1,18 +1,18 @@
 import React, { Component, Suspense } from 'react'
 import {Route, Redirect, Switch } from 'react-router-dom';
 
-function RouteWithSubRoutes(route) {
-     return (
-        <Route
-            path={route.path}
-            render={props => (
-               //pass the sub-routes down to keep nesting
-              <Suspense fallback={<div>Loading...</div>}>
-                    <route.component {...props} childRoutes={route.childRoutes !== undefined ? route.childRoutes : []} />
-              </Suspense>
+// function RouteWithSubRoutes(route) {
+//      return (
+//         <Route
+//             path={route.path}
+//             render={props => (
+//                //pass the sub-routes down to keep nesting
+//               <Suspense fallback={<div>Loading...</div>}>
+//                     <route.component {...props} childRoutes={route.childRoutes !== undefined ? route.childRoutes : []} />
+//               </Suspense>
                 
-        )} />
-    )
+//         )} />
+//     )
      
     
     /*  if (route.isRequiredAuth){
@@ -38,7 +38,7 @@ function RouteWithSubRoutes(route) {
          )
      } */
     
-}
+//}
 
 // export class RouterView extends Component {
 //     render() {

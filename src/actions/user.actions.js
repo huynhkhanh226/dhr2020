@@ -10,6 +10,11 @@ export const userActions = {
     auth
 };
 
+/*!
+ * @author Huynh Khanh <email>
+ * date 08/05/2019
+ * description Get secret key
+ */
 function login(username, password, redirect) {
     return dispatch => {
         dispatch(request({ username: username, token: "" }));
@@ -41,7 +46,7 @@ function login(username, password, redirect) {
 
 
 /*!
- * @author user <email>
+ * @author Huynh Khanh <email>
  * date 07/25/2019
  * login function 
  */
