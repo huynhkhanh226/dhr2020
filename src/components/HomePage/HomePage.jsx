@@ -8,16 +8,16 @@ import RouterView from '../../routes/RouterView';
 //import RouterView from "react-router-view";
 //import routes from '../../routes/routes';
 import {FormGroup, Row, Col} from 'reactstrap';
-// import MainMenu from './MainMenu.jsx';
-// import TopMenu from './TopMenu.jsx';
-// import Header from './Header.jsx';
-// import EssMenu from './EssMenu.jsx';
-//import Footer from '../LoginPage/Footer.jsx';
-const MainMenu = React.lazy(() => import( /* webpackChunkName: "MainMenu" */'./MainMenu.jsx'));
-const TopMenu = React.lazy(() => import( /* webpackChunkName: "TopMenu" */'./TopMenu.jsx'));
-const Header = React.lazy(() => import( /* webpackChunkName: "Header" */'./Header.jsx'));
-const EssMenu = React.lazy(() => import( /* webpackChunkName: "EssMenu" */'./EssMenu.jsx'));
-const Footer = React.lazy(() => import( /* webpackChunkName: "Footer" */'../Shared/Footer/Footer.jsx'));
+import MainMenu from './MainMenu.jsx';
+import TopMenu from './TopMenu.jsx';
+import Header from './Header.jsx';
+import EssMenu from './EssMenu.jsx';
+import Footer from '../Shared/Footer/Footer.jsx';
+// const MainMenu = React.lazy(() => import( /* webpackChunkName: "MainMenu" */'./MainMenu.jsx'));
+// const TopMenu = React.lazy(() => import( /* webpackChunkName: "TopMenu" */'./TopMenu.jsx'));
+// const Header = React.lazy(() => import( /* webpackChunkName: "Header" */'./Header.jsx'));
+// const EssMenu = React.lazy(() => import( /* webpackChunkName: "EssMenu" */'./EssMenu.jsx'));
+// const Footer = React.lazy(() => import( /* webpackChunkName: "Footer" */'../Shared/Footer/Footer.jsx'));
 const loading = () => <div className="text-center"></div>;
 
 

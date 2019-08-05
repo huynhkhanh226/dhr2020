@@ -82,6 +82,29 @@ function auth(username, password, redirect) {
  */
 
 function logout() {
-    userService.logout();
-    return { type: userConstants.LOGOUT };
+
+    return dispatch => {
+        dispatch(request());
+        userService.logout()
+            .then(
+                data => { 
+                    dispatch(success(data.code));
+                    if (data.code === 200){
+                        history.push("/login");
+                        localStorage.removeItem('user');
+                    }else{
+                        dispatch(failure(data));
+                        dispatch(alertActions.error(data.message));
+                    }
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                    dispatch(alertActions.error(error.toString()));
+                }
+            );
+    };
+
+    function request() { return { type: userConstants.LOGOUT_REQUEST} }
+    function success(code) { return { type: userConstants.LOGOUT_SUCCESS, code: code } }
+    function failure(data) { return { type: userConstants.LOGOUT_SUCCESS, code: code, message: data.message } }
 }

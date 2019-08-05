@@ -13,12 +13,8 @@ export class W00F1000 extends Component {
                     to={`${this.props.match.url}/W00F2000`}>
                     call W000F2000
                 </NavLink>
-                <NavLink
-                    className="nav-link"
-                    to={`/W00F1000/W00F2000`}>
-                    call W000F2000
-                </NavLink>
-                    <RouterView routes={this.props.childRoutes} />
+                
+                <RouterView routes={this.props.childRoutes} />
                 
             </div>
         )

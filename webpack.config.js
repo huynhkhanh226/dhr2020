@@ -306,6 +306,7 @@ module.exports = env => {
       path: path.resolve(__dirname, "dist"),
       filename: "assets/js/[name].[contenthash].bundles.js",
       chunkFilename: "assets/js/components/[id].[name].[contenthash].bundle.js",
+      publicPath: process.env.PUBLIC_URL
       //chunkFilename: "chunk-[name].[contenthash].js"
       //publicPath: '/' + process.env.PUBLIC_URL + '/'
     },

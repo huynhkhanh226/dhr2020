@@ -1,5 +1,5 @@
 import config from "config";
-import {headerGetUser, headerGetClient } from "../helpers/index";
+import {headerGetUser, headerGetClient, authHeader } from "../helpers/index";
 
 export const userService = {
   getClientID,
@@ -63,15 +63,15 @@ function logout() {
   let token = user.token;
   const requestOptions = {
     method: "PUT",
-    headers: { "Content-Type": "application/json" },
+    headers: authHeader(),
     body: JSON.stringify({ token })
   };
   //api/user/logout
-  localStorage.removeItem("user");
   return fetch(`${config.apiUrl}/user/logout`, requestOptions)
     .then(handleResponse)
     .then(response => {
-      localStorage.removeItem("user");
+      debugger;
+      //localStorage.removeItem("user");
       return response;
     });
 }

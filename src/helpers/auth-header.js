@@ -5,15 +5,12 @@
  */
 const headerType = ["", "CLIENTID", "AUTH"];
 
-export function authHeader(token) {
+export function authHeader() {
+  debugger;
     let user = JSON.parse(localStorage.getItem("user"));
-    if (user && user.token) {
-      return { 
-        "Content-Type": "application/json",
-          token: user.token };
-    } else {
-      return {};
-    }
+    return { 
+      "Content-Type": "application/json",
+        token: user.data.token };
 }
 
 export function headerGetUser() {

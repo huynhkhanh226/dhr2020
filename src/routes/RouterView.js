@@ -89,16 +89,15 @@ function RouteWithSubRoutes(route) {
 //  }
 
 function RouterView(props){
-    /* if(!(props.routes instanceof Array)) {
-       throw new Error("routes必须是个数组！")
-       return null
-    } */
+     if(!(props.routes instanceof Array)) {
+       throw new Error("routes errors")
+       return null;
+    } 
     return (
-        
         <div>
+          <Switch>
           {
               props.routes.map((route, i) => (
-                 
                 <Route key={i} path={route.path} render={(props) => {
                     var redirect = null;
                     console.log(props.match.url === props.location.pathname);
@@ -107,13 +106,16 @@ function RouterView(props){
                     }
                     return (
                         <div style={{height: '100%'}}>
-                            <route.component {...props} childRoutes={route.childRoutes || []}/>
+                            <Suspense fallback={<div>Loading...</div>}>
+                                <route.component {...props} childRoutes={route.childRoutes || []}/>
+                            </Suspense>
                             {redirect}
                         </div>
                     )
                 }}/>
              ))
           }
+          </Switch>
         </div>
     )
  }

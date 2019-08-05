@@ -7,7 +7,7 @@ import { FormGroup,Row, Col,  Card, Button, CardHeader, CardFooter, CardBody,
   CardTitle, CardText } from 'reactstrap';
 //import Footer from './Footer.jsx';
 import Logo from './logo.jsx';
-const Footer = React.lazy(() => import( /* webpackChunkName: "Footer" */'../Shared/Footer/Footer.jsx'));
+//const Footer = React.lazy(() => import( /* webpackChunkName: "Footer" */'../Shared/Footer/Footer.jsx'));
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -102,7 +102,7 @@ class LoginPage extends React.Component {
           <Suspense fallback={<div>Loading...</div>}>
               <Row>
                 <Col sm={12} style={{paddingLeft: '0px', paddingRight: '0px'}}>
-                  <Footer />
+                  {/* <Footer /> */}
                 </Col>
               </Row>
           </Suspense>

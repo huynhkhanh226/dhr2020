@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import { connect } from "react-redux";
 import {
     Collapse,
     Navbar,
@@ -10,11 +11,13 @@ import {
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem } from 'reactstrap';
+    DropdownItem,
+    Button } from 'reactstrap';
 import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBell, faHome, faChevronDown, faTasks, faPlus, faUser, faDotCircle } from '@fortawesome/free-solid-svg-icons'
-export class TopMenu extends Component {
+import { faBell, faHome, faChevronDown, faTasks, faPlus, faUser, faDotCircle } from '@fortawesome/free-solid-svg-icons';
+import {userActions} from '../../actions/user.actions';
+export class TopMenuPage extends Component {
     constructor(props) {
         super(props);
     
@@ -29,6 +32,11 @@ export class TopMenu extends Component {
           isOpen: !this.state.isOpen
         });
       }
+
+      logout = () =>{
+        this.props.logout();
+      }
+
       render() {
         return (
           <div className="top-menu">
@@ -63,7 +71,7 @@ export class TopMenu extends Component {
                           <FontAwesomeIcon icon={faDotCircle} style={{color: 'blue'}}/>  14:00  Hội thảo chiến lược 1
                         </DropdownItem>
                       </div>
-                      <div style={{marginRight: '25px', marginTop: '10px'}}><Link to="/login" className="full-right" style={{float: 'right'}}>Đăng xuất</Link></div>
+                      <div style={{marginRight: '25px', marginTop: '10px'}}><Button color="link" onClick={this.logout}>Đăng xuất</Button></div>
                     </DropdownMenu>
                   </UncontrolledDropdown>
                 </Nav>
@@ -74,4 +82,17 @@ export class TopMenu extends Component {
       }
 }
 
+
+function mapState(state) {
+  const { loggingIn } = state.authentication;
+  const { alert } = state;
+
+  return { loggingIn, alert };
+}
+
+const actionCreators = {
+  logout: userActions.logout
+};
+
+const TopMenu = connect(mapState, actionCreators)(TopMenuPage);
 export default TopMenu

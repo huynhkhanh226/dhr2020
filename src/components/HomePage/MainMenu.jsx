@@ -51,7 +51,7 @@ export class MainMenu extends Component {
                   <DropdownItem>
                     <NavLink
                     className="nav-link"
-                    to={'/home/W00F1000'}>
+                    to={'/W00F1000'}>
                     W00F1000
                   </NavLink>
                   </DropdownItem>
