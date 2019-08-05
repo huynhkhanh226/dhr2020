@@ -1,11 +1,12 @@
 import React, { Suspense } from 'react';
-import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
+import {Route, BrowserRouter as Router, Switch, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {userActions} from '../../actions/user.actions';
 import './HomePage.scss';
 import W00F1000 from '../W0X/W00/W00F1000/W00F1000';
 import RouterView from '../../routes/RouterView';
-import routes from '../../routes/routes';
+//import RouterView from "react-router-view";
+//import routes from '../../routes/routes';
 import {FormGroup, Row, Col} from 'reactstrap';
 // import MainMenu from './MainMenu.jsx';
 // import TopMenu from './TopMenu.jsx';
@@ -17,7 +18,7 @@ const TopMenu = React.lazy(() => import( /* webpackChunkName: "TopMenu" */'./Top
 const Header = React.lazy(() => import( /* webpackChunkName: "Header" */'./Header.jsx'));
 const EssMenu = React.lazy(() => import( /* webpackChunkName: "EssMenu" */'./EssMenu.jsx'));
 const Footer = React.lazy(() => import( /* webpackChunkName: "Footer" */'../Shared/Footer/Footer.jsx'));
-
+const loading = () => <div className="text-center"></div>;
 
 
 class HomePage extends React.Component {
@@ -26,29 +27,27 @@ class HomePage extends React.Component {
     }
     render() {
       debugger;
+        var redirect = '' 
         const {user} = this.props;
+
         return (
             <div className="home-page">
               <Router>
-                  <Suspense fallback={<div>Loading...</div>}>
+                  <Suspense fallback={<div></div>}>
                     <TopMenu />
                  </Suspense>
-                 <Suspense fallback={<div>Loading...</div>}>
+                 <Suspense fallback={<div></div>}>
                     <MainMenu />
                   </Suspense>
-                  <Suspense fallback={<div>Loading...</div>}>
+                  <Suspense fallback={<div></div>}>
                     <div className="khanh-test">
                       <FormGroup>
                           <Row>
-                            <Col sm={6}>
-                              <RouterView name="a" routes={this.props.childRoutes} />
-                            </Col>
-                            <Col sm={6}>
-                              <RouterView name="b" routes={this.props.childRoutes} />
+                            <Col sm={12}>
+                              <RouterView name="a" routes={this.props.childRoutes}/>
                             </Col>
                           </Row>
                       </FormGroup>
-                        
                     </div>
                   </Suspense> 
                   </Router>

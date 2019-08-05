@@ -8,11 +8,12 @@ import { PrivateRoute } from './components/PrivateRoute.jsx';
 import { alertActions } from "./actions/alert.actions";
 import routes from './routes/routes';
 import RouterView from './routes/RouterView';
+//import RouterView from "react-router-view";
 
 
 const Login = React.lazy(() => import('./components/LoginPage/LoginPage.jsx'));
 const Home = React.lazy(() => import('./components/HomePage/HomePage.jsx'));
-const loading = () => <div className="text-center">Loading...</div>;
+const loading = () => <div className="text-center"></div>;
 
 
 class App extends Component {
@@ -31,16 +32,14 @@ class App extends Component {
         console.log(alert);
         return (
             <div className="container-fluid">
-                {/* <Router history={history}>
+                {/*  <Router history={history}>
                     <React.Suspense fallback={loading()}>
-                        {<PrivateRoute exact path="/" component={Home}>
-                                <Route exact path="/home" component={Home} />
-                        </PrivateRoute>
-                        <Route path="/login" component={Login} /> }
-                        
+                        <PrivateRoute exact path="/" component={Home}/>
+                        <Route path='/login' component={Login} />
                     </React.Suspense>
-                </Router> */}
-                <Router history={history}>
+                </Router>  */}
+
+                 <Router history={history}>
                     <React.Suspense fallback={loading()}>
                         <RouterView routes={routes}></RouterView>
                     </React.Suspense>

@@ -20,7 +20,8 @@ export class TopMenu extends Component {
     
         this.toggle = this.toggle.bind(this);
         this.state = {
-          isOpen: false
+          isOpen: false,
+          hide: localStorage.getItem("user") == null ? 'hide': ''
         };
       }
       toggle() {

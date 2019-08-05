@@ -31,6 +31,7 @@ class LoginPage extends React.Component {
 
   }
   componentDidMount() {
+    debugger;
     console.log("componentDidMount");
   }
 

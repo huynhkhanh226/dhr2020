@@ -25,7 +25,8 @@ export class MainMenu extends Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      hide: localStorage.getItem("user") == null ? 'hide': ''
     };
   }
   toggle() {
@@ -35,6 +36,7 @@ export class MainMenu extends Component {
   }
 
   render() {
+    //debugger;
     return (
       <div className="main-menu">
         <Navbar color="light" light expand="md">
@@ -49,24 +51,26 @@ export class MainMenu extends Component {
                   <DropdownItem>
                     <NavLink
                     className="nav-link"
-                    to={{ pathname: "/W00F1000", state: { pass: "some data" } }}>
-                    Phân quyền
+                    to={'/home/W00F1000'}>
+                    W00F1000
                   </NavLink>
                   </DropdownItem>
+                  
+                  <DropdownItem divider />
                   <DropdownItem>
                     <NavLink
-                      className="nav-link"
-                      to={{ pathname: "/W00F2000", state: { pass: "some data" } }}>
-                      Phân quyền
-                    </NavLink>
+                    className="nav-link"
+                    to={'/W00F2000'}>
+                    W00F2000
+                  </NavLink>
                   </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>
                     <NavLink
-                      className="nav-link"
-                      to={{ pathname: "/W00F1000", state: { pass: "some data" } }}>
-                      Phân quyền
-                    </NavLink>
+                    className="nav-link"
+                    to={'/W00F3000'}>
+                    W00F3000
+                  </NavLink>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
