@@ -100,7 +100,6 @@ function RouterView(props){
               props.routes.map((route, i) => (
                 <Route key={i} path={route.path} render={(props) => {
                     var redirect = null;
-                    console.log(props.match.url === props.location.pathname);
                     if((props.match.url === props.location.pathname) && route.isRequiredAuth && localStorage.getItem('user') === null) {
                         redirect = <Redirect to={{ pathname: '/login', state: { redirect: props.location, error: "You need to login first!" } }} />
                     }
@@ -110,8 +109,8 @@ function RouterView(props){
                     return (
                         <div style={{height: '100%'}}>
                             <Suspense fallback={<div>Loading...</div>}>
-                                {redirect}
                                 <route.component {...props} childRoutes={route.childRoutes || []}/>
+                                {redirect}
                             </Suspense>
                             
                         </div>
