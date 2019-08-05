@@ -96,3 +96,7 @@ import { Button, ButtonToolbar } from "react-bootstrap";
 select2
 https://jedwatson.github.io/react-select/
 https://github.com/JedWatson/react-select
+
+
+npm i react-native-aes-kit
+https://www.npmjs.com/package/react-native-aes-kit

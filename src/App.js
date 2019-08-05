@@ -8,7 +8,6 @@ import { PrivateRoute } from './components/PrivateRoute.jsx';
 import { alertActions } from "./actions/alert.actions";
 import getRoutes from './routes/routes';
 import RouterView from './routes/RouterView';
-import NotFound from './components/Shared/NotFound/NotFound';
 //import RouterView from "react-router-view";
 const routes = getRoutes();
 
@@ -51,7 +50,6 @@ class App extends Component {
                     <React.Suspense fallback={loading()}>
                     <Switch>
                         <RouterView routes={routes}></RouterView>
-                        <Route component={NotFound}/>
                     </Switch>
                     </React.Suspense>
                 </Router>

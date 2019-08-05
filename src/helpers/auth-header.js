@@ -10,7 +10,7 @@ export function authHeader() {
     let user = JSON.parse(localStorage.getItem("user"));
     return { 
       "Content-Type": "application/json",
-        token: user.data.token };
+        token: user.token };
 }
 
 export function headerGetUser() {

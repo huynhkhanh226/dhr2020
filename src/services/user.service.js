@@ -22,7 +22,6 @@ function getClientID(username, password) {
   return fetch(`${config.apiUrl}/auth/token`, requestOptions)
     .then(handleResponse)
     .then(response => {
-      localStorage.setItem("client", JSON.stringify(response));
       return response;
     });
 }
@@ -44,8 +43,6 @@ function login(username, password) {
   return fetch(`${config.apiUrl}/user/login`, requestOptions)
     .then(handleResponse)
     .then(res => {
-      //debugger;
-      localStorage.setItem("user", JSON.stringify(res));
       return res;
     });
 }

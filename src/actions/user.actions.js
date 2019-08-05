@@ -15,14 +15,14 @@ function login(username, password, redirect) {
         dispatch(request({ username: username, token: "" }));
         userService.getClientID()
             .then(
-                data => { 
-                    
-                    if (data.code === 200){
-                        dispatch(success(data));
+                res => { 
+                    if (res.code === 200){
+                        localStorage.setItem("client", JSON.stringify(res));
+                        dispatch(success(res));
                         dispatch(auth(username,password, redirect));
                     }else{
-                        dispatch(failure(data.message));
-                        dispatch(alertActions.error(data.message));
+                        dispatch(failure(res.message));
+                        dispatch(alertActions.error(res.message));
                     }
 
                 },
@@ -51,14 +51,15 @@ function auth(username, password, redirect) {
         dispatch(request({ username : username }));
         userService.login(username, password)
             .then(
-                data => { 
+                res => { 
                     //debugger;
-                    dispatch(success(data));
-                    if (data.code === 200){
+                    dispatch(success(res));
+                    if (res.code === 200){
+                        localStorage.setItem("user", JSON.stringify(res.data));
                         history.push(redirect || "/home");
                     }else{
-                        dispatch(failure(data.message));
-                        dispatch(alertActions.error(data.message));
+                        dispatch(failure(res.message));
+                        dispatch(alertActions.error(res.message));
                     }
                    
                 },
@@ -90,8 +91,9 @@ function logout() {
                 data => { 
                     dispatch(success(data.code));
                     if (data.code === 200){
-                        history.push("/login");
                         localStorage.removeItem('user');
+                        history.push("/login");
+                        
                     }else{
                         dispatch(failure(data));
                         dispatch(alertActions.error(data.message));
