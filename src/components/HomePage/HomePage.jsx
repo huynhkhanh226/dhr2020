@@ -23,6 +23,12 @@ import { loading } from '../Shared/Loading/Loading';
 
 
 class HomePage extends React.Component {
+    constructor(props) {
+      super(props)
+      
+      
+    }
+    
     render() {
         var redirect = '' 
         const {user} = this.props;

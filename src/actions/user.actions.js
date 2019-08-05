@@ -61,7 +61,7 @@ function auth(username, password, redirect) {
                     dispatch(success(res));
                     if (res.code === 200){
                         localStorage.setItem("user", JSON.stringify(res.data));
-                        history.push(redirect || "/home");
+                        history.push(redirect || "/");
                     }else{
                         dispatch(failure(res.message));
                         dispatch(alertActions.error(res.message));

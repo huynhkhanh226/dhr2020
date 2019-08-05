@@ -13,7 +13,7 @@ import W00F3000 from '../components/W0X/W00/W00F3000/W00F3000';
 import Home from '../components/HomePage/HomePage.jsx';
 import Login from '../components/LoginPage/LoginPage.jsx';
 import Index from '../components/Layout/Index';
-
+import ESS from '../components/HomePage/EssMenu.jsx';
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 export default function () {
   const routes = [
@@ -30,10 +30,22 @@ export default function () {
       name: 'Home',
       isRequiredAuth: true,
       component: Home,
+      redirect: "/ess",
       childRoutes: [
         {
+          path: '/ess',
+          exact: true, 
+          name: 'es',
+          isRequiredAuth: true,
+          component: ESS,
+          view: 'a',
+          childRoutes: [
+           
+          ]
+        },
+        {
           path: '/W00F1000',
-          //exact: true, 
+          exact: true, 
           name: 'W00F1000',
           isRequiredAuth: true,
           component: W00F1000,
@@ -41,7 +53,7 @@ export default function () {
           childRoutes: [
             {
               path: '/W00F1000/W00F2000',
-              //exact: true, 
+              exact: true, 
               name: 'W00F2000',
               isRequiredAuth: true,
               component: W00F2000,
