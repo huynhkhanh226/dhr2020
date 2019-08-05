@@ -49,7 +49,7 @@ export class TopMenuPage extends Component {
                     <NavLink href="/components/" className="text-primary"><FontAwesomeIcon icon={faBell} style={{color: 'orange'}}/></NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="/components/" className="text-primary" style={{padding: '5px 9px', border: '1px solid #ccc', borderRadius: '50%'}} ><FontAwesomeIcon icon={faUser} /></NavLink>
+                    <NavLink href="/components/" className="text-primary" style={{padding: '5px 9px'}} ><FontAwesomeIcon icon={faUser} /></NavLink>
                   </NavItem>
                   
                   <UncontrolledDropdown nav inNavbar className="menu-expand">
