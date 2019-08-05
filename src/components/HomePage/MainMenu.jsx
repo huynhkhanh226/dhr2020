@@ -52,7 +52,7 @@ export class MainMenu extends Component {
                     <NavLink
                     className="nav-link"
                     to={'/W00F1000'}>
-                    W00F1000
+                    Phân quyền
                   </NavLink>
                   </DropdownItem>
                   
@@ -61,7 +61,7 @@ export class MainMenu extends Component {
                     <NavLink
                     className="nav-link"
                     to={'/W00F2000'}>
-                    W00F2000
+                    Thiết lập
                   </NavLink>
                   </DropdownItem>
                   <DropdownItem divider />
@@ -69,7 +69,7 @@ export class MainMenu extends Component {
                     <NavLink
                     className="nav-link"
                     to={'/W00F3000'}>
-                    W00F3000
+                    Tuỳ chọn
                   </NavLink>
                   </DropdownItem>
                 </DropdownMenu>
@@ -77,23 +77,19 @@ export class MainMenu extends Component {
               <NavItem>
                 <BNavLink href="#">Danh mục</BNavLink>
               </NavItem>
-              <NavItem>
-                <BNavLink href="#">Tuyển dụng</BNavLink>
+              <NavItem> 
+                  <NavLink
+                    className="nav-link"
+                    to={'/ess'}>
+                    ESS
+                  </NavLink>
               </NavItem>
               <NavItem>
-                <BNavLink href="#">Nhân sự - Bảo hiểm</BNavLink>
-              </NavItem>
-              <NavItem>
-                <BNavLink href="#">Công phép - Lương</BNavLink>
-              </NavItem>
-              <NavItem>
-                <BNavLink href="#">Đào tạo - Đánh giá</BNavLink>
-              </NavItem>
-              <NavItem>
-                <BNavLink href="#">Trang thiết bị lao động</BNavLink>
-              </NavItem>
-              <NavItem>
-                <BNavLink href="#">Truy vấn - Báo cáo</BNavLink>
+                <NavLink
+                    className="nav-link"
+                    to={'/mss'}>
+                    MSS
+                  </NavLink>
               </NavItem>
             </Nav>
           </Collapse>

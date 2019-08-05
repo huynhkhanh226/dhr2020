@@ -6,14 +6,13 @@ import WebFont from 'webfontloader';
 import {App} from './App';
 // setup fake backend
 import { configureFakeBackend } from './helpers/index';
-//configureFakeBackend();
+configureFakeBackend();
 
 const Root = ({ store }) => (
   <Provider store={store} >
     <Router>
       <Route path="/:filter?" component={App} />
     </Router>
-   
   </Provider>
 )
 

@@ -104,12 +104,16 @@ function RouterView(props){
                     if((props.match.url === props.location.pathname) && route.isRequiredAuth && localStorage.getItem('user') === null) {
                         redirect = <Redirect to={{ pathname: '/login', state: { redirect: props.location, error: "You need to login first!" } }} />
                     }
+                    /* if(route.redirect && props.match.url === props.location.pathname) {
+                        redirect = <Redirect to={route.redirect} />
+                    } */
                     return (
                         <div style={{height: '100%'}}>
                             <Suspense fallback={<div>Loading...</div>}>
+                                {redirect}
                                 <route.component {...props} childRoutes={route.childRoutes || []}/>
                             </Suspense>
-                            {redirect}
+                            
                         </div>
                     )
                 }}/>

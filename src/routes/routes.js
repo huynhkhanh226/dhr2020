@@ -13,7 +13,9 @@ import W00F3000 from '../components/W0X/W00/W00F3000/W00F3000';
 import Home from '../components/HomePage/HomePage.jsx';
 import Login from '../components/LoginPage/LoginPage.jsx';
 import Index from '../components/Layout/Index';
-import ESS from '../components/HomePage/EssMenu.jsx';
+//import ESS from ;
+const ESS = React.lazy(() => import(/* webpackChunkName: "EssMenu" */'../components/HomePage/EssMenu.jsx'));
+
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 export default function () {
   const routes = [
@@ -30,7 +32,7 @@ export default function () {
       name: 'Home',
       isRequiredAuth: true,
       component: Home,
-      redirect: "/ess",
+      //redirect: "/ess",
       childRoutes: [
         {
           path: '/ess',

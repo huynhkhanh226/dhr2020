@@ -25,13 +25,18 @@ import { loading } from '../Shared/Loading/Loading';
 class HomePage extends React.Component {
     constructor(props) {
       super(props)
-      
+    
+      this.state = {
+         
+      };
+    };
+    
+    componentDidMount(){
       
     }
-    
     render() {
-        var redirect = '' 
-        const {user} = this.props;
+        //var redirect = '' 
+        //const {user} = this.props;
 
         return (
             <div className={"home-page"}>
